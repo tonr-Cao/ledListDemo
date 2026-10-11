@@ -4,53 +4,16 @@ Component: ARM Compiler 5.06 update 7 (build 960) Tool: armlink [4d3601]
 
 Section Cross References
 
-    main.o(i.OLED_I2C_Write) refers to si2c.o(i.My_SI2C_SendBytes) for My_SI2C_SendBytes
-    main.o(i.OLED_I2C_Write) refers to main.o(.data) for SI2C1
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_Clear) for OLED_Clear
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SetFont) for OLED_SetFont
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SetBrush) for OLED_SetBrush
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_GetStrWidth) for OLED_GetStrWidth
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_GetScreenWidth) for OLED_GetScreenWidth
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SetCursor) for OLED_SetCursor
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_DrawString) for OLED_DrawString
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SetPen) for OLED_SetPen
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_DrawRect) for OLED_DrawRect
-    main.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SendBuffer) for OLED_SendBuffer
-    main.o(i.OLED_ShowMenu) refers to main.o(.constdata) for menu_font
-    main.o(i.OLED_ShowMenu) refers to main.o(.data) for in_submenu
-    main.o(i.OLED_ShowMenu) refers to oled.o(.constdata) for default_font
-    main.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_Clear) for OLED_Clear
-    main.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SetFont) for OLED_SetFont
-    main.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SetPen) for OLED_SetPen
-    main.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SetBrush) for OLED_SetBrush
-    main.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SetCursor) for OLED_SetCursor
-    main.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_DrawString) for OLED_DrawString
-    main.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SendBuffer) for OLED_SendBuffer
-    main.o(i.OLED_ShowWelcome) refers to main.o(.constdata) for menu_font
-    main.o(i.OnButtonDown) refers to main.o(.data) for in_submenu
-    main.o(i.OnButtonEnter) refers to main.o(.data) for in_submenu
-    main.o(i.OnButtonUp) refers to main.o(.data) for in_submenu
-    main.o(i.main) refers to memseta.o(.text) for __aeabi_memclr4
     main.o(i.main) refers to delay.o(i.Delay_Init) for Delay_Init
-    main.o(i.main) refers to si2c.o(i.My_SI2C_Init) for My_SI2C_Init
-    main.o(i.main) refers to oled.o(i.OLED_Init) for OLED_Init
-    main.o(i.main) refers to main.o(i.OLED_ShowWelcome) for OLED_ShowWelcome
-    main.o(i.main) refers to button.o(i.My_Button_Init) for My_Button_Init
+    main.o(i.main) refers to oled.o(i.BSP_OLED_Init) for BSP_OLED_Init
+    main.o(i.main) refers to menu.o(i.Menu_Init) for Menu_Init
+    main.o(i.main) refers to menu.o(i.Menu_Process) for Menu_Process
     main.o(i.main) refers to delay.o(i.Delay) for Delay
-    main.o(i.main) refers to button.o(i.My_Button_Proc) for My_Button_Proc
-    main.o(i.main) refers to main.o(i.OLED_ShowMenu) for OLED_ShowMenu
-    main.o(i.main) refers to main.o(.constdata) for .constdata
-    main.o(i.main) refers to main.o(.data) for SI2C1
-    main.o(i.main) refers to main.o(.bss) for OLED
-    main.o(i.main) refers to main.o(i.OnButtonUp) for OnButtonUp
-    main.o(i.main) refers to main.o(i.OnButtonDown) for OnButtonDown
-    main.o(i.main) refers to main.o(i.OnButtonEnter) for OnButtonEnter
-    main.o(.constdata) refers to main.o(.conststring) for .conststring
-    main.o(.constdata) refers to main.o(i.OLED_I2C_Write) for OLED_I2C_Write
-    main.o(.data) refers to main.o(.conststring) for .conststring
+    main.o(i.main) refers to main.o(.bss) for display
     system_stm32f10x.o(i.SetSysClock) refers to system_stm32f10x.o(i.SetSysClockTo72) for SetSysClockTo72
     system_stm32f10x.o(i.SystemCoreClockUpdate) refers to system_stm32f10x.o(.data) for SystemCoreClock
     system_stm32f10x.o(i.SystemInit) refers to system_stm32f10x.o(i.SetSysClock) for SetSysClock
+    stm32f10x_it.o(i.SysTick_Handler) refers to encoder.o(i.BSP_Encoder_Tick) for BSP_Encoder_Tick
     stm32f10x_it.o(i.SysTick_Handler) refers to delay.o(.data) for ulTicks
     startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(STACK) for __initial_sp
     startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(.text) for Reset_Handler
@@ -193,6 +156,35 @@ Section Cross References
     si2c.o(i.SendByte) refers to stm32f10x_gpio.o(i.GPIO_ReadInputDataBit) for GPIO_ReadInputDataBit
     si2c.o(i.SendStop) refers to stm32f10x_gpio.o(i.GPIO_WriteBit) for GPIO_WriteBit
     si2c.o(i.SendStop) refers to si2c.o(i.delay) for delay
+    button.o(i.GPIOClockCmd) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    button.o(i.My_Button_Init) refers to button.o(i.GPIOClockCmd) for GPIOClockCmd
+    button.o(i.My_Button_Init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
+    button.o(i.My_Button_Proc) refers to delay.o(i.GetTick) for GetTick
+    button.o(i.My_Button_Proc) refers to stm32f10x_gpio.o(i.GPIO_ReadInputDataBit) for GPIO_ReadInputDataBit
+    button.o(i.My_Button_Proc) refers to button.o(i.OnButtonPressed) for OnButtonPressed
+    button.o(i.My_Button_Proc) refers to button.o(i.OnButtonReleased) for OnButtonReleased
+    button.o(i.My_Button_Proc) refers to button.o(i.OnButtonEveryPolled) for OnButtonEveryPolled
+    button.o(i.OnButtonEveryPolled) refers to delay.o(i.GetTick) for GetTick
+    button.o(i.OnButtonPressed) refers to delay.o(i.GetTick) for GetTick
+    button.o(i.OnButtonReleased) refers to delay.o(i.GetTick) for GetTick
+    spi.o(i.My_SPI_MasterTransmitReceive) refers to stm32f10x_spi.o(i.SPI_Cmd) for SPI_Cmd
+    spi.o(i.My_SPI_MasterTransmitReceive) refers to stm32f10x_spi.o(i.SPI_I2S_SendData) for SPI_I2S_SendData
+    spi.o(i.My_SPI_MasterTransmitReceive) refers to stm32f10x_spi.o(i.SPI_I2S_GetFlagStatus) for SPI_I2S_GetFlagStatus
+    spi.o(i.My_SPI_MasterTransmitReceive) refers to stm32f10x_spi.o(i.SPI_I2S_ReceiveData) for SPI_I2S_ReceiveData
+    encoder.o(i.BSP_Encoder_Init) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    encoder.o(i.BSP_Encoder_Init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
+    encoder.o(i.BSP_Encoder_Init) refers to encoder.o(i.ReadPin) for ReadPin
+    encoder.o(i.BSP_Encoder_Init) refers to encoder.o(.data) for active_encoder
+    encoder.o(i.BSP_Encoder_Tick) refers to encoder.o(i.ReadPin) for ReadPin
+    encoder.o(i.BSP_Encoder_Tick) refers to encoder.o(.data) for active_encoder
+    encoder.o(i.BSP_Encoder_Tick) refers to encoder.o(.constdata) for transition_table
+    encoder.o(i.ReadPin) refers to stm32f10x_gpio.o(i.GPIO_ReadInputDataBit) for GPIO_ReadInputDataBit
+    oled.o(i.BSP_OLED_I2C_Write) refers to si2c.o(i.My_SI2C_SendBytes) for My_SI2C_SendBytes
+    oled.o(i.BSP_OLED_I2C_Write) refers to oled.o(.data) for OLED_SI2C
+    oled.o(i.BSP_OLED_Init) refers to si2c.o(i.My_SI2C_Init) for My_SI2C_Init
+    oled.o(i.BSP_OLED_Init) refers to oled.o(i.OLED_Init) for OLED_Init
+    oled.o(i.BSP_OLED_Init) refers to oled.o(.constdata) for .constdata
+    oled.o(i.BSP_OLED_Init) refers to oled.o(.data) for OLED_SI2C
     oled.o(i.DrawBitmapEx) refers to dfltui.o(.text) for __aeabi_ui2d
     oled.o(i.DrawBitmapEx) refers to ddiv.o(.text) for __aeabi_ddiv
     oled.o(i.DrawBitmapEx) refers to ceil.o(i.ceil) for ceil
@@ -238,21 +230,81 @@ Section Cross References
     oled.o(i.OLED_StartTextRegion) refers to oled.o(i.OLED_GetFontHeight) for OLED_GetFontHeight
     oled.o(i.PenDot) refers to oled.o(i.BrushDot) for BrushDot
     oled.o(.constdata) refers to oled.o(.conststring) for .conststring
-    button.o(i.GPIOClockCmd) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
-    button.o(i.My_Button_Init) refers to button.o(i.GPIOClockCmd) for GPIOClockCmd
-    button.o(i.My_Button_Init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
-    button.o(i.My_Button_Proc) refers to delay.o(i.GetTick) for GetTick
-    button.o(i.My_Button_Proc) refers to stm32f10x_gpio.o(i.GPIO_ReadInputDataBit) for GPIO_ReadInputDataBit
-    button.o(i.My_Button_Proc) refers to button.o(i.OnButtonPressed) for OnButtonPressed
-    button.o(i.My_Button_Proc) refers to button.o(i.OnButtonReleased) for OnButtonReleased
-    button.o(i.My_Button_Proc) refers to button.o(i.OnButtonEveryPolled) for OnButtonEveryPolled
-    button.o(i.OnButtonEveryPolled) refers to delay.o(i.GetTick) for GetTick
-    button.o(i.OnButtonPressed) refers to delay.o(i.GetTick) for GetTick
-    button.o(i.OnButtonReleased) refers to delay.o(i.GetTick) for GetTick
-    spi.o(i.My_SPI_MasterTransmitReceive) refers to stm32f10x_spi.o(i.SPI_Cmd) for SPI_Cmd
-    spi.o(i.My_SPI_MasterTransmitReceive) refers to stm32f10x_spi.o(i.SPI_I2S_SendData) for SPI_I2S_SendData
-    spi.o(i.My_SPI_MasterTransmitReceive) refers to stm32f10x_spi.o(i.SPI_I2S_GetFlagStatus) for SPI_I2S_GetFlagStatus
-    spi.o(i.My_SPI_MasterTransmitReceive) refers to stm32f10x_spi.o(i.SPI_I2S_ReceiveData) for SPI_I2S_ReceiveData
+    oled.o(.constdata) refers to oled.o(i.BSP_OLED_I2C_Write) for BSP_OLED_I2C_Write
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_tim.o(i.TIM_TimeBaseStructInit) for TIM_TimeBaseStructInit
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_tim.o(i.TIM_OCStructInit) for TIM_OCStructInit
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_tim.o(i.TIM_OC1Init) for TIM_OC1Init
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_tim.o(i.TIM_OC1PreloadConfig) for TIM_OC1PreloadConfig
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_tim.o(i.TIM_ARRPreloadConfig) for TIM_ARRPreloadConfig
+    led_pwm.o(i.BSP_LED_PWM_Init) refers to stm32f10x_tim.o(i.TIM_Cmd) for TIM_Cmd
+    led_pwm.o(i.BSP_LED_PWM_SetBrightness) refers to stm32f10x_tim.o(i.TIM_SetCompare1) for TIM_SetCompare1
+    menu.o(i.Menu_Init) refers to led_app.o(i.LED_App_Init) for LED_App_Init
+    menu.o(i.Menu_Init) refers to delay.o(i.GetTick) for GetTick
+    menu.o(i.Menu_Init) refers to encoder.o(i.BSP_Encoder_Init) for BSP_Encoder_Init
+    menu.o(i.Menu_Init) refers to menu.o(i.OLED_ShowWelcome) for OLED_ShowWelcome
+    menu.o(i.Menu_Init) refers to menu.o(.data) for menu_display
+    menu.o(i.Menu_Init) refers to menu.o(.bss) for menu_encoder
+    menu.o(i.Menu_Process) refers to encoder.o(i.BSP_Encoder_Process) for BSP_Encoder_Process
+    menu.o(i.Menu_Process) refers to delay.o(i.GetTick) for GetTick
+    menu.o(i.Menu_Process) refers to led_app.o(i.LED_App_AdjustBrightness) for LED_App_AdjustBrightness
+    menu.o(i.Menu_Process) refers to menu.o(i.OLED_UpdateSelector) for OLED_UpdateSelector
+    menu.o(i.Menu_Process) refers to menu.o(i.OLED_ShowMenu) for OLED_ShowMenu
+    menu.o(i.Menu_Process) refers to menu.o(.bss) for menu_encoder
+    menu.o(i.Menu_Process) refers to menu.o(.data) for menu_ready
+    menu.o(i.OLED_DrawSelectionPill) refers to oled.o(i.OLED_SetPen) for OLED_SetPen
+    menu.o(i.OLED_DrawSelectionPill) refers to oled.o(i.OLED_SetBrush) for OLED_SetBrush
+    menu.o(i.OLED_DrawSelectionPill) refers to oled.o(i.OLED_SetCursor) for OLED_SetCursor
+    menu.o(i.OLED_DrawSelectionPill) refers to oled.o(i.OLED_DrawRect) for OLED_DrawRect
+    menu.o(i.OLED_DrawSelectionPill) refers to oled.o(i.OLED_DrawCircle) for OLED_DrawCircle
+    menu.o(i.OLED_DrawSelectionPill) refers to menu.o(.data) for menu_display
+    menu.o(i.OLED_ShowLEDControl) refers to led_app.o(i.LED_App_GetBrightness) for LED_App_GetBrightness
+    menu.o(i.OLED_ShowLEDControl) refers to oled.o(i.OLED_SetFont) for OLED_SetFont
+    menu.o(i.OLED_ShowLEDControl) refers to oled.o(i.OLED_SetPen) for OLED_SetPen
+    menu.o(i.OLED_ShowLEDControl) refers to oled.o(i.OLED_SetBrush) for OLED_SetBrush
+    menu.o(i.OLED_ShowLEDControl) refers to oled.o(i.OLED_GetStrWidth) for OLED_GetStrWidth
+    menu.o(i.OLED_ShowLEDControl) refers to oled.o(i.OLED_GetScreenWidth) for OLED_GetScreenWidth
+    menu.o(i.OLED_ShowLEDControl) refers to oled.o(i.OLED_SetCursor) for OLED_SetCursor
+    menu.o(i.OLED_ShowLEDControl) refers to oled.o(i.OLED_DrawString) for OLED_DrawString
+    menu.o(i.OLED_ShowLEDControl) refers to oled.o(i.OLED_DrawRect) for OLED_DrawRect
+    menu.o(i.OLED_ShowLEDControl) refers to oled.o(.constdata) for default_font
+    menu.o(i.OLED_ShowLEDControl) refers to menu.o(.data) for menu_display
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_Clear) for OLED_Clear
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SetFont) for OLED_SetFont
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SetBrush) for OLED_SetBrush
+    menu.o(i.OLED_ShowMenu) refers to menu.o(i.OLED_ShowLEDControl) for OLED_ShowLEDControl
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SendBuffer) for OLED_SendBuffer
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SetPen) for OLED_SetPen
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_SetCursor) for OLED_SetCursor
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_DrawRect) for OLED_DrawRect
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_GetStrWidth) for OLED_GetStrWidth
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_GetScreenWidth) for OLED_GetScreenWidth
+    menu.o(i.OLED_ShowMenu) refers to oled.o(i.OLED_DrawString) for OLED_DrawString
+    menu.o(i.OLED_ShowMenu) refers to menu.o(i.OLED_DrawSelectionPill) for OLED_DrawSelectionPill
+    menu.o(i.OLED_ShowMenu) refers to menu.o(.data) for menu_display
+    menu.o(i.OLED_ShowMenu) refers to menu.o(.constdata) for menu_font
+    menu.o(i.OLED_ShowMenu) refers to oled.o(.constdata) for default_font
+    menu.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_Clear) for OLED_Clear
+    menu.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SetFont) for OLED_SetFont
+    menu.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SetPen) for OLED_SetPen
+    menu.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SetBrush) for OLED_SetBrush
+    menu.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SetCursor) for OLED_SetCursor
+    menu.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_DrawString) for OLED_DrawString
+    menu.o(i.OLED_ShowWelcome) refers to oled.o(i.OLED_SendBuffer) for OLED_SendBuffer
+    menu.o(i.OLED_ShowWelcome) refers to menu.o(.data) for menu_display
+    menu.o(i.OLED_ShowWelcome) refers to menu.o(.constdata) for menu_font
+    menu.o(i.OLED_UpdateSelector) refers to menu.o(.data) for in_submenu
+    menu.o(.constdata) refers to menu.o(.conststring) for .conststring
+    menu.o(.data) refers to menu.o(.conststring) for .conststring
+    led_app.o(i.LED_App_AdjustBrightness) refers to led_pwm.o(i.BSP_LED_PWM_SetBrightness) for BSP_LED_PWM_SetBrightness
+    led_app.o(i.LED_App_AdjustBrightness) refers to led_app.o(.data) for brightness
+    led_app.o(i.LED_App_GetBrightness) refers to led_app.o(.data) for brightness
+    led_app.o(i.LED_App_Init) refers to led_pwm.o(i.BSP_LED_PWM_Init) for BSP_LED_PWM_Init
+    led_app.o(i.LED_App_Init) refers to led_pwm.o(i.BSP_LED_PWM_SetBrightness) for BSP_LED_PWM_SetBrightness
+    led_app.o(i.LED_App_Init) refers to led_app.o(.data) for brightness
     ceil.o(i.__softfp_ceil) refers (Special) to iusefp.o(.text) for __I$use$fp
     ceil.o(i.__softfp_ceil) refers to ceil.o(i.ceil) for ceil
     ceil.o(i.ceil) refers (Special) to iusefp.o(.text) for __I$use$fp
@@ -699,7 +751,6 @@ Removing Unused input sections from the image.
     Removing stm32f10x_rcc.o(.rrx_text), (6 bytes).
     Removing stm32f10x_rcc.o(i.RCC_ADCCLKConfig), (24 bytes).
     Removing stm32f10x_rcc.o(i.RCC_AHBPeriphClockCmd), (32 bytes).
-    Removing stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd), (32 bytes).
     Removing stm32f10x_rcc.o(i.RCC_APB1PeriphResetCmd), (32 bytes).
     Removing stm32f10x_rcc.o(i.RCC_APB2PeriphResetCmd), (32 bytes).
     Removing stm32f10x_rcc.o(i.RCC_AdjustHSICalibrationValue), (24 bytes).
@@ -810,7 +861,6 @@ Removing Unused input sections from the image.
     Removing stm32f10x_tim.o(i.TI2_Config), (152 bytes).
     Removing stm32f10x_tim.o(i.TI3_Config), (144 bytes).
     Removing stm32f10x_tim.o(i.TI4_Config), (152 bytes).
-    Removing stm32f10x_tim.o(i.TIM_ARRPreloadConfig), (24 bytes).
     Removing stm32f10x_tim.o(i.TIM_BDTRConfig), (32 bytes).
     Removing stm32f10x_tim.o(i.TIM_BDTRStructInit), (18 bytes).
     Removing stm32f10x_tim.o(i.TIM_CCPreloadControl), (24 bytes).
@@ -822,7 +872,6 @@ Removing Unused input sections from the image.
     Removing stm32f10x_tim.o(i.TIM_ClearOC2Ref), (24 bytes).
     Removing stm32f10x_tim.o(i.TIM_ClearOC3Ref), (18 bytes).
     Removing stm32f10x_tim.o(i.TIM_ClearOC4Ref), (24 bytes).
-    Removing stm32f10x_tim.o(i.TIM_Cmd), (24 bytes).
     Removing stm32f10x_tim.o(i.TIM_CounterModeConfig), (18 bytes).
     Removing stm32f10x_tim.o(i.TIM_CtrlPWMOutputs), (30 bytes).
     Removing stm32f10x_tim.o(i.TIM_DMACmd), (18 bytes).
@@ -851,10 +900,8 @@ Removing Unused input sections from the image.
     Removing stm32f10x_tim.o(i.TIM_ITRxExternalClockConfig), (24 bytes).
     Removing stm32f10x_tim.o(i.TIM_InternalClockConfig), (12 bytes).
     Removing stm32f10x_tim.o(i.TIM_OC1FastConfig), (18 bytes).
-    Removing stm32f10x_tim.o(i.TIM_OC1Init), (152 bytes).
     Removing stm32f10x_tim.o(i.TIM_OC1NPolarityConfig), (18 bytes).
     Removing stm32f10x_tim.o(i.TIM_OC1PolarityConfig), (18 bytes).
-    Removing stm32f10x_tim.o(i.TIM_OC1PreloadConfig), (18 bytes).
     Removing stm32f10x_tim.o(i.TIM_OC2FastConfig), (26 bytes).
     Removing stm32f10x_tim.o(i.TIM_OC2Init), (164 bytes).
     Removing stm32f10x_tim.o(i.TIM_OC2NPolarityConfig), (26 bytes).
@@ -869,7 +916,6 @@ Removing Unused input sections from the image.
     Removing stm32f10x_tim.o(i.TIM_OC4Init), (124 bytes).
     Removing stm32f10x_tim.o(i.TIM_OC4PolarityConfig), (26 bytes).
     Removing stm32f10x_tim.o(i.TIM_OC4PreloadConfig), (26 bytes).
-    Removing stm32f10x_tim.o(i.TIM_OCStructInit), (20 bytes).
     Removing stm32f10x_tim.o(i.TIM_PWMIConfig), (124 bytes).
     Removing stm32f10x_tim.o(i.TIM_PrescalerConfig), (6 bytes).
     Removing stm32f10x_tim.o(i.TIM_SelectCCDMA), (24 bytes).
@@ -883,7 +929,6 @@ Removing Unused input sections from the image.
     Removing stm32f10x_tim.o(i.TIM_SelectSlaveMode), (18 bytes).
     Removing stm32f10x_tim.o(i.TIM_SetAutoreload), (4 bytes).
     Removing stm32f10x_tim.o(i.TIM_SetClockDivision), (18 bytes).
-    Removing stm32f10x_tim.o(i.TIM_SetCompare1), (4 bytes).
     Removing stm32f10x_tim.o(i.TIM_SetCompare2), (4 bytes).
     Removing stm32f10x_tim.o(i.TIM_SetCompare3), (4 bytes).
     Removing stm32f10x_tim.o(i.TIM_SetCompare4), (6 bytes).
@@ -893,8 +938,6 @@ Removing Unused input sections from the image.
     Removing stm32f10x_tim.o(i.TIM_SetIC3Prescaler), (18 bytes).
     Removing stm32f10x_tim.o(i.TIM_SetIC4Prescaler), (26 bytes).
     Removing stm32f10x_tim.o(i.TIM_TIxExternalClockConfig), (62 bytes).
-    Removing stm32f10x_tim.o(i.TIM_TimeBaseInit), (164 bytes).
-    Removing stm32f10x_tim.o(i.TIM_TimeBaseStructInit), (18 bytes).
     Removing stm32f10x_tim.o(i.TIM_UpdateDisableConfig), (24 bytes).
     Removing stm32f10x_tim.o(i.TIM_UpdateRequestConfig), (24 bytes).
     Removing stm32f10x_usart.o(.rev16_text), (4 bytes).
@@ -966,13 +1009,27 @@ Removing Unused input sections from the image.
     Removing si2c.o(.rrx_text), (6 bytes).
     Removing si2c.o(i.My_SI2C_ReceiveBytes), (120 bytes).
     Removing si2c.o(i.ReceiveByte), (136 bytes).
+    Removing button.o(.rev16_text), (4 bytes).
+    Removing button.o(.revsh_text), (4 bytes).
+    Removing button.o(.rrx_text), (6 bytes).
+    Removing button.o(i.GPIOClockCmd), (96 bytes).
+    Removing button.o(i.MyButton_GetState), (8 bytes).
+    Removing button.o(i.My_Button_Init), (118 bytes).
+    Removing button.o(i.My_Button_Proc), (128 bytes).
+    Removing button.o(i.OnButtonEveryPolled), (148 bytes).
+    Removing button.o(i.OnButtonPressed), (20 bytes).
+    Removing button.o(i.OnButtonReleased), (56 bytes).
+    Removing spi.o(.rev16_text), (4 bytes).
+    Removing spi.o(.revsh_text), (4 bytes).
+    Removing spi.o(.rrx_text), (6 bytes).
+    Removing spi.o(i.My_SPI_MasterTransmitReceive), (132 bytes).
+    Removing encoder.o(.rev16_text), (4 bytes).
+    Removing encoder.o(.revsh_text), (4 bytes).
+    Removing encoder.o(.rrx_text), (6 bytes).
     Removing oled.o(.rev16_text), (4 bytes).
     Removing oled.o(.revsh_text), (4 bytes).
     Removing oled.o(.rrx_text), (6 bytes).
-    Removing oled.o(i.DrawCircleFrame), (322 bytes).
-    Removing oled.o(i.FillCircle), (162 bytes).
     Removing oled.o(i.OLED_DrawBitmap), (36 bytes).
-    Removing oled.o(i.OLED_DrawCircle), (52 bytes).
     Removing oled.o(i.OLED_DrawDot), (20 bytes).
     Removing oled.o(i.OLED_DrawLine), (448 bytes).
     Removing oled.o(i.OLED_EndSendBuffer), (72 bytes).
@@ -993,14 +1050,15 @@ Removing Unused input sections from the image.
     Removing oled.o(i.OLED_StartTextRegion), (32 bytes).
     Removing oled.o(i.OLED_StopClipRegion), (12 bytes).
     Removing oled.o(i.OLED_StopTextRegion), (12 bytes).
-    Removing button.o(.rev16_text), (4 bytes).
-    Removing button.o(.revsh_text), (4 bytes).
-    Removing button.o(.rrx_text), (6 bytes).
-    Removing button.o(i.MyButton_GetState), (8 bytes).
-    Removing spi.o(.rev16_text), (4 bytes).
-    Removing spi.o(.revsh_text), (4 bytes).
-    Removing spi.o(.rrx_text), (6 bytes).
-    Removing spi.o(i.My_SPI_MasterTransmitReceive), (132 bytes).
+    Removing led_pwm.o(.rev16_text), (4 bytes).
+    Removing led_pwm.o(.revsh_text), (4 bytes).
+    Removing led_pwm.o(.rrx_text), (6 bytes).
+    Removing menu.o(.rev16_text), (4 bytes).
+    Removing menu.o(.revsh_text), (4 bytes).
+    Removing menu.o(.rrx_text), (6 bytes).
+    Removing led_app.o(.rev16_text), (4 bytes).
+    Removing led_app.o(.revsh_text), (4 bytes).
+    Removing led_app.o(.rrx_text), (6 bytes).
     Removing fmul.o(.text), (100 bytes).
     Removing dmul.o(.text), (228 bytes).
     Removing ffltui.o(.text), (10 bytes).
@@ -1011,7 +1069,7 @@ Removing Unused input sections from the image.
     Removing dfixul.o(.text), (48 bytes).
     Removing cdcmple.o(.text), (48 bytes).
 
-617 unused section(s) (total 23044 bytes) removed from the image.
+623 unused section(s) (total 22674 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1021,37 +1079,37 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocra.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocr.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocr.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca.o ABSOLUTE
     ../clib/microlib/malloc/mvars.c          0x00000000   Number         0  mvars.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/stdio/fputc.c           0x00000000   Number         0  fputc.o ABSOLUTE
     ../clib/microlib/stdio/semi.s            0x00000000   Number         0  semi.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
-    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusesemip.o ABSOLUTE
@@ -1059,20 +1117,30 @@ Image Symbol Table
     ../fplib/microlib/d2f.c                  0x00000000   Number         0  d2f.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
-    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixui.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixui.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
-    ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
-    ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
     ../fplib/microlib/fprnd.c                0x00000000   Number         0  drnd.o ABSOLUTE
     ../mathlib/ceil.c                        0x00000000   Number         0  ceil.o ABSOLUTE
     ../mathlib/round.c                       0x00000000   Number         0  round.o ABSOLUTE
+    APP\\led_app.c                           0x00000000   Number         0  led_app.o ABSOLUTE
+    APP\\menu.c                              0x00000000   Number         0  menu.o ABSOLUTE
+    APP\led_app.c                            0x00000000   Number         0  led_app.o ABSOLUTE
+    APP\menu.c                               0x00000000   Number         0  menu.o ABSOLUTE
+    BSP\\encoder.c                           0x00000000   Number         0  encoder.o ABSOLUTE
+    BSP\\led_pwm.c                           0x00000000   Number         0  led_pwm.o ABSOLUTE
+    BSP\\oled.c                              0x00000000   Number         0  oled.o ABSOLUTE
+    BSP\encoder.c                            0x00000000   Number         0  encoder.o ABSOLUTE
+    BSP\led_pwm.c                            0x00000000   Number         0  led_pwm.o ABSOLUTE
+    BSP\oled.c                               0x00000000   Number         0  oled.o ABSOLUTE
     cdcmple.s                                0x00000000   Number         0  cdcmple.o ABSOLUTE
     cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
@@ -1081,14 +1149,12 @@ Image Symbol Table
     my_lib\\button.c                         0x00000000   Number         0  button.o ABSOLUTE
     my_lib\\delay.c                          0x00000000   Number         0  delay.o ABSOLUTE
     my_lib\\i2c.c                            0x00000000   Number         0  i2c.o ABSOLUTE
-    my_lib\\oled.c                           0x00000000   Number         0  oled.o ABSOLUTE
     my_lib\\si2c.c                           0x00000000   Number         0  si2c.o ABSOLUTE
     my_lib\\spi.c                            0x00000000   Number         0  spi.o ABSOLUTE
     my_lib\\usart.c                          0x00000000   Number         0  usart.o ABSOLUTE
     my_lib\button.c                          0x00000000   Number         0  button.o ABSOLUTE
     my_lib\delay.c                           0x00000000   Number         0  delay.o ABSOLUTE
     my_lib\i2c.c                             0x00000000   Number         0  i2c.o ABSOLUTE
-    my_lib\oled.c                            0x00000000   Number         0  oled.o ABSOLUTE
     my_lib\si2c.c                            0x00000000   Number         0  si2c.o ABSOLUTE
     my_lib\spi.c                             0x00000000   Number         0  spi.o ABSOLUTE
     my_lib\usart.c                           0x00000000   Number         0  usart.o ABSOLUTE
@@ -1172,233 +1238,260 @@ Image Symbol Table
     .text                                    0x080004cc   Section        0  depilogue.o(.text)
     .text                                    0x08000588   Section       48  cdrcmple.o(.text)
     .text                                    0x080005b8   Section       36  init.o(.text)
-    i.BrushDot                               0x080005dc   Section        0  oled.o(i.BrushDot)
-    BrushDot                                 0x080005dd   Thumb Code   202  oled.o(i.BrushDot)
-    i.BusFault_Handler                       0x080006a6   Section        0  stm32f10x_it.o(i.BusFault_Handler)
-    i.DebugMon_Handler                       0x080006aa   Section        0  stm32f10x_it.o(i.DebugMon_Handler)
-    i.Delay                                  0x080006ac   Section        0  delay.o(i.Delay)
-    i.Delay_Init                             0x080006d0   Section        0  delay.o(i.Delay_Init)
-    i.DrawBitmapEx                           0x080007a4   Section        0  oled.o(i.DrawBitmapEx)
-    DrawBitmapEx                             0x080007a5   Thumb Code   180  oled.o(i.DrawBitmapEx)
-    i.DrawCharator                           0x0800085c   Section        0  oled.o(i.DrawCharator)
-    DrawCharator                             0x0800085d   Thumb Code   442  oled.o(i.DrawCharator)
-    i.DrawRectFrame                          0x08000a16   Section        0  oled.o(i.DrawRectFrame)
-    DrawRectFrame                            0x08000a17   Thumb Code   232  oled.o(i.DrawRectFrame)
-    i.FillRect                               0x08000afe   Section        0  oled.o(i.FillRect)
-    FillRect                                 0x08000aff   Thumb Code    72  oled.o(i.FillRect)
-    i.GPIOClockCmd                           0x08000b48   Section        0  button.o(i.GPIOClockCmd)
-    GPIOClockCmd                             0x08000b49   Thumb Code    80  button.o(i.GPIOClockCmd)
-    i.GPIO_Init                              0x08000ba8   Section        0  stm32f10x_gpio.o(i.GPIO_Init)
-    i.GPIO_ReadInputDataBit                  0x08000cbe   Section        0  stm32f10x_gpio.o(i.GPIO_ReadInputDataBit)
-    i.GPIO_WriteBit                          0x08000cd0   Section        0  stm32f10x_gpio.o(i.GPIO_WriteBit)
-    i.GetGlyphWidth                          0x08000cda   Section        0  oled.o(i.GetGlyphWidth)
-    GetGlyphWidth                            0x08000cdb   Thumb Code    52  oled.o(i.GetGlyphWidth)
-    i.GetOverlappedRect                      0x08000d0e   Section        0  oled.o(i.GetOverlappedRect)
-    GetOverlappedRect                        0x08000d0f   Thumb Code   202  oled.o(i.GetOverlappedRect)
-    i.GetTick                                0x08000dd8   Section        0  delay.o(i.GetTick)
-    i.HardFault_Handler                      0x08000de8   Section        0  stm32f10x_it.o(i.HardFault_Handler)
-    i.MemManage_Handler                      0x08000dec   Section        0  stm32f10x_it.o(i.MemManage_Handler)
-    i.My_Button_Init                         0x08000df0   Section        0  button.o(i.My_Button_Init)
-    i.My_Button_Proc                         0x08000e66   Section        0  button.o(i.My_Button_Proc)
-    i.My_SI2C_Init                           0x08000ee8   Section        0  si2c.o(i.My_SI2C_Init)
-    i.My_SI2C_SendBytes                      0x08000fd4   Section        0  si2c.o(i.My_SI2C_SendBytes)
-    i.NMI_Handler                            0x0800104a   Section        0  stm32f10x_it.o(i.NMI_Handler)
-    i.OLED_Clear                             0x0800104c   Section        0  oled.o(i.OLED_Clear)
-    i.OLED_DrawRect                          0x0800105c   Section        0  oled.o(i.OLED_DrawRect)
-    i.OLED_DrawString                        0x08001092   Section        0  oled.o(i.OLED_DrawString)
-    i.OLED_GetScreenWidth                    0x080011c2   Section        0  oled.o(i.OLED_GetScreenWidth)
-    i.OLED_GetStrWidth                       0x080011c8   Section        0  oled.o(i.OLED_GetStrWidth)
-    i.OLED_I2C_Write                         0x0800131c   Section        0  main.o(i.OLED_I2C_Write)
-    OLED_I2C_Write                           0x0800131d   Thumb Code    22  main.o(i.OLED_I2C_Write)
-    i.OLED_Init                              0x08001338   Section        0  oled.o(i.OLED_Init)
-    i.OLED_SendBuffer                        0x08001504   Section        0  oled.o(i.OLED_SendBuffer)
-    i.OLED_SendCommand                       0x0800157a   Section        0  oled.o(i.OLED_SendCommand)
-    OLED_SendCommand                         0x0800157b   Thumb Code    66  oled.o(i.OLED_SendCommand)
-    i.OLED_SendData                          0x080015bc   Section        0  oled.o(i.OLED_SendData)
-    OLED_SendData                            0x080015bd   Thumb Code    48  oled.o(i.OLED_SendData)
-    i.OLED_SetBrush                          0x080015ec   Section        0  oled.o(i.OLED_SetBrush)
-    i.OLED_SetCursor                         0x080015f0   Section        0  oled.o(i.OLED_SetCursor)
-    i.OLED_SetFont                           0x080015f6   Section        0  oled.o(i.OLED_SetFont)
-    i.OLED_SetPen                            0x080015fa   Section        0  oled.o(i.OLED_SetPen)
-    i.OLED_ShowMenu                          0x08001600   Section        0  main.o(i.OLED_ShowMenu)
-    OLED_ShowMenu                            0x08001601   Thumb Code   458  main.o(i.OLED_ShowMenu)
-    i.OLED_ShowWelcome                       0x080017ec   Section        0  main.o(i.OLED_ShowWelcome)
-    OLED_ShowWelcome                         0x080017ed   Thumb Code    62  main.o(i.OLED_ShowWelcome)
-    i.OnButtonDown                           0x08001840   Section        0  main.o(i.OnButtonDown)
-    OnButtonDown                             0x08001841   Thumb Code    34  main.o(i.OnButtonDown)
-    i.OnButtonEnter                          0x08001870   Section        0  main.o(i.OnButtonEnter)
-    OnButtonEnter                            0x08001871   Thumb Code    28  main.o(i.OnButtonEnter)
-    i.OnButtonEveryPolled                    0x08001894   Section        0  button.o(i.OnButtonEveryPolled)
-    OnButtonEveryPolled                      0x08001895   Thumb Code   148  button.o(i.OnButtonEveryPolled)
-    i.OnButtonPressed                        0x08001928   Section        0  button.o(i.OnButtonPressed)
-    OnButtonPressed                          0x08001929   Thumb Code    20  button.o(i.OnButtonPressed)
-    i.OnButtonReleased                       0x0800193c   Section        0  button.o(i.OnButtonReleased)
-    OnButtonReleased                         0x0800193d   Thumb Code    56  button.o(i.OnButtonReleased)
-    i.OnButtonUp                             0x08001974   Section        0  main.o(i.OnButtonUp)
-    OnButtonUp                               0x08001975   Thumb Code    46  main.o(i.OnButtonUp)
-    i.PenDot                                 0x080019b0   Section        0  oled.o(i.PenDot)
-    PenDot                                   0x080019b1   Thumb Code   160  oled.o(i.PenDot)
-    i.PendSV_Handler                         0x08001a50   Section        0  stm32f10x_it.o(i.PendSV_Handler)
-    i.RCC_APB2PeriphClockCmd                 0x08001a54   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    i.RCC_GetClocksFreq                      0x08001a74   Section        0  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
-    i.SVC_Handler                            0x08001b48   Section        0  stm32f10x_it.o(i.SVC_Handler)
-    i.SendByte                               0x08001b4a   Section        0  si2c.o(i.SendByte)
-    SendByte                                 0x08001b4b   Thumb Code   134  si2c.o(i.SendByte)
-    i.SendStop                               0x08001bd0   Section        0  si2c.o(i.SendStop)
-    SendStop                                 0x08001bd1   Thumb Code    70  si2c.o(i.SendStop)
-    i.SetSysClock                            0x08001c16   Section        0  system_stm32f10x.o(i.SetSysClock)
-    SetSysClock                              0x08001c17   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
-    i.SetSysClockTo72                        0x08001c20   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
-    SetSysClockTo72                          0x08001c21   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
-    i.SysTick_Handler                        0x08001d00   Section        0  stm32f10x_it.o(i.SysTick_Handler)
-    i.SystemInit                             0x08001d18   Section        0  system_stm32f10x.o(i.SystemInit)
-    i.UsageFault_Handler                     0x08001d78   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
-    i.__scatterload_copy                     0x08001d7c   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x08001d8a   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x08001d8c   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.ceil                                   0x08001d9c   Section        0  ceil.o(i.ceil)
-    i.delay                                  0x08001e78   Section        0  si2c.o(i.delay)
-    i.main                                   0x08001e88   Section        0  main.o(i.main)
-    i.malloc                                 0x08001f60   Section        0  malloc.o(i.malloc)
-    i.unicode_2_glyph_idx                    0x08001fcc   Section        0  oled.o(i.unicode_2_glyph_idx)
-    unicode_2_glyph_idx                      0x08001fcd   Thumb Code    54  oled.o(i.unicode_2_glyph_idx)
-    .constdata                               0x08002004   Section     1000  main.o(.constdata)
-    menu_font_GlyphBitmap_6B22               0x08002004   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_8FCE               0x08002024   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_4F7F               0x08002044   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_7528               0x08002064   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_98CE               0x08002084   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_6247               0x080020a4   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_63A7               0x080020c4   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_5236               0x080020e4   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_6447               0x08002104   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_6746               0x08002124   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_6570               0x08002144   Data          32  main.o(.constdata)
-    menu_font_GlyphBitmap_636E               0x08002164   Data          32  main.o(.constdata)
-    menu_font_Map                            0x08002184   Data          48  main.o(.constdata)
-    menu_font_Glyphs                         0x080021b4   Data         528  main.o(.constdata)
-    menu_font                                0x080023c4   Data          36  main.o(.constdata)
-    .constdata                               0x080023ec   Section     5168  oled.o(.constdata)
-    default_font_GlyphBitmap_0020            0x080023ec   Data           1  oled.o(.constdata)
-    default_font_GlyphBitmap_0021            0x080023ed   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0022            0x080023f4   Data           3  oled.o(.constdata)
-    default_font_GlyphBitmap_0023            0x080023f7   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0024            0x080023fe   Data           6  oled.o(.constdata)
-    default_font_GlyphBitmap_0025            0x08002404   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0026            0x0800240b   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0027            0x08002412   Data           3  oled.o(.constdata)
-    default_font_GlyphBitmap_0028            0x08002415   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0029            0x0800241c   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_002A            0x08002423   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_002B            0x08002428   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_002C            0x0800242d   Data           3  oled.o(.constdata)
-    default_font_GlyphBitmap_002D            0x08002430   Data           1  oled.o(.constdata)
-    default_font_GlyphBitmap_002E            0x08002431   Data           2  oled.o(.constdata)
-    default_font_GlyphBitmap_002F            0x08002433   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0030            0x08002438   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0031            0x0800243f   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0032            0x08002446   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0033            0x0800244d   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0034            0x08002454   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0035            0x0800245b   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0036            0x08002462   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0037            0x08002469   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0038            0x08002470   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0039            0x08002477   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_003A            0x0800247e   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_003B            0x08002483   Data           6  oled.o(.constdata)
-    default_font_GlyphBitmap_003C            0x08002489   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_003D            0x08002490   Data           3  oled.o(.constdata)
-    default_font_GlyphBitmap_003E            0x08002493   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_003F            0x0800249a   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0040            0x080024a1   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0041            0x080024a8   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0042            0x080024af   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0043            0x080024b6   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0044            0x080024bd   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0045            0x080024c4   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0046            0x080024cb   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0047            0x080024d2   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0048            0x080024d9   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0049            0x080024e0   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_004A            0x080024e7   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_004B            0x080024ee   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_004C            0x080024f5   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_004D            0x080024fc   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_004E            0x08002503   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_004F            0x0800250a   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0050            0x08002511   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0051            0x08002518   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0052            0x0800251f   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0053            0x08002526   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0054            0x0800252d   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0055            0x08002534   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0056            0x0800253b   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0057            0x08002542   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0058            0x08002549   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0059            0x08002550   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_005A            0x08002557   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_005B            0x0800255e   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_005C            0x08002565   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_005D            0x0800256a   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_005E            0x08002571   Data           3  oled.o(.constdata)
-    default_font_GlyphBitmap_005F            0x08002574   Data           1  oled.o(.constdata)
-    default_font_GlyphBitmap_0060            0x08002575   Data           3  oled.o(.constdata)
-    default_font_GlyphBitmap_0061            0x08002578   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0062            0x0800257d   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0063            0x08002584   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0064            0x08002589   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0065            0x08002590   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0066            0x08002595   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0067            0x0800259c   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0068            0x080025a1   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0069            0x080025a8   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_006A            0x080025af   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_006B            0x080025b6   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_006C            0x080025bd   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_006D            0x080025c4   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_006E            0x080025c9   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_006F            0x080025ce   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0070            0x080025d3   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0071            0x080025d8   Data           6  oled.o(.constdata)
-    default_font_GlyphBitmap_0072            0x080025de   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0073            0x080025e3   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0074            0x080025e8   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_0075            0x080025ef   Data           6  oled.o(.constdata)
-    default_font_GlyphBitmap_0076            0x080025f5   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0077            0x080025fa   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0078            0x080025ff   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_0079            0x08002604   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_007A            0x08002609   Data           5  oled.o(.constdata)
-    default_font_GlyphBitmap_007B            0x0800260e   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_007C            0x08002615   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_007D            0x0800261c   Data           7  oled.o(.constdata)
-    default_font_GlyphBitmap_007E            0x08002623   Data           3  oled.o(.constdata)
-    default_font_Map                         0x08002628   Data         380  oled.o(.constdata)
-    default_font_Glyphs                      0x080027a4   Data        4180  oled.o(.constdata)
-    .conststring                             0x0800381c   Section      157  main.o(.conststring)
-    .conststring                             0x080038bc   Section      769  oled.o(.conststring)
-    .data                                    0x20000000   Section       32  main.o(.data)
-    SI2C1                                    0x20000000   Data          16  main.o(.data)
-    selected_item                            0x20000010   Data           1  main.o(.data)
-    in_submenu                               0x20000011   Data           1  main.o(.data)
-    screen_needs_refresh                     0x20000012   Data           1  main.o(.data)
-    menu_items                               0x20000014   Data          12  main.o(.data)
-    .data                                    0x20000020   Section       20  stm32f10x_rcc.o(.data)
-    APBAHBPrescTable                         0x20000020   Data          16  stm32f10x_rcc.o(.data)
-    ADCPrescTable                            0x20000030   Data           4  stm32f10x_rcc.o(.data)
-    .data                                    0x20000034   Section       12  delay.o(.data)
-    delay_initialized_flag                   0x20000038   Data           1  delay.o(.data)
-    us_per_mini_tick                         0x2000003c   Data           4  delay.o(.data)
-    .data                                    0x20000040   Section        4  mvars.o(.data)
-    .data                                    0x20000044   Section        4  mvars.o(.data)
-    .bss                                     0x20000048   Section      232  main.o(.bss)
-    OLED                                     0x20000048   Data          40  main.o(.bss)
-    ButtonUp                                 0x20000070   Data          64  main.o(.bss)
-    ButtonDown                               0x200000b0   Data          64  main.o(.bss)
-    ButtonEnter                              0x200000f0   Data          64  main.o(.bss)
-    HEAP                                     0x20000130   Section     4096  startup_stm32f10x_md.o(HEAP)
-    STACK                                    0x20001130   Section     4096  startup_stm32f10x_md.o(STACK)
+    i.BSP_Encoder_Init                       0x080005dc   Section        0  encoder.o(i.BSP_Encoder_Init)
+    i.BSP_Encoder_Process                    0x08000654   Section        0  encoder.o(i.BSP_Encoder_Process)
+    i.BSP_Encoder_Tick                       0x080006ac   Section        0  encoder.o(i.BSP_Encoder_Tick)
+    i.BSP_LED_PWM_Init                       0x080007a4   Section        0  led_pwm.o(i.BSP_LED_PWM_Init)
+    i.BSP_LED_PWM_SetBrightness              0x08000844   Section        0  led_pwm.o(i.BSP_LED_PWM_SetBrightness)
+    i.BSP_OLED_I2C_Write                     0x0800086c   Section        0  oled.o(i.BSP_OLED_I2C_Write)
+    BSP_OLED_I2C_Write                       0x0800086d   Thumb Code    22  oled.o(i.BSP_OLED_I2C_Write)
+    i.BSP_OLED_Init                          0x08000888   Section        0  oled.o(i.BSP_OLED_Init)
+    i.BrushDot                               0x080008ac   Section        0  oled.o(i.BrushDot)
+    BrushDot                                 0x080008ad   Thumb Code   202  oled.o(i.BrushDot)
+    i.BusFault_Handler                       0x08000976   Section        0  stm32f10x_it.o(i.BusFault_Handler)
+    i.DebugMon_Handler                       0x0800097a   Section        0  stm32f10x_it.o(i.DebugMon_Handler)
+    i.Delay                                  0x0800097c   Section        0  delay.o(i.Delay)
+    i.Delay_Init                             0x080009a0   Section        0  delay.o(i.Delay_Init)
+    i.DrawBitmapEx                           0x08000a74   Section        0  oled.o(i.DrawBitmapEx)
+    DrawBitmapEx                             0x08000a75   Thumb Code   180  oled.o(i.DrawBitmapEx)
+    i.DrawCharator                           0x08000b2c   Section        0  oled.o(i.DrawCharator)
+    DrawCharator                             0x08000b2d   Thumb Code   442  oled.o(i.DrawCharator)
+    i.DrawCircleFrame                        0x08000ce6   Section        0  oled.o(i.DrawCircleFrame)
+    DrawCircleFrame                          0x08000ce7   Thumb Code   322  oled.o(i.DrawCircleFrame)
+    i.DrawRectFrame                          0x08000e28   Section        0  oled.o(i.DrawRectFrame)
+    DrawRectFrame                            0x08000e29   Thumb Code   232  oled.o(i.DrawRectFrame)
+    i.FillCircle                             0x08000f10   Section        0  oled.o(i.FillCircle)
+    FillCircle                               0x08000f11   Thumb Code   162  oled.o(i.FillCircle)
+    i.FillRect                               0x08000fb2   Section        0  oled.o(i.FillRect)
+    FillRect                                 0x08000fb3   Thumb Code    72  oled.o(i.FillRect)
+    i.GPIO_Init                              0x08000ffa   Section        0  stm32f10x_gpio.o(i.GPIO_Init)
+    i.GPIO_ReadInputDataBit                  0x08001110   Section        0  stm32f10x_gpio.o(i.GPIO_ReadInputDataBit)
+    i.GPIO_WriteBit                          0x08001122   Section        0  stm32f10x_gpio.o(i.GPIO_WriteBit)
+    i.GetGlyphWidth                          0x0800112c   Section        0  oled.o(i.GetGlyphWidth)
+    GetGlyphWidth                            0x0800112d   Thumb Code    52  oled.o(i.GetGlyphWidth)
+    i.GetOverlappedRect                      0x08001160   Section        0  oled.o(i.GetOverlappedRect)
+    GetOverlappedRect                        0x08001161   Thumb Code   202  oled.o(i.GetOverlappedRect)
+    i.GetTick                                0x0800122c   Section        0  delay.o(i.GetTick)
+    i.HardFault_Handler                      0x0800123c   Section        0  stm32f10x_it.o(i.HardFault_Handler)
+    i.LED_App_AdjustBrightness               0x08001240   Section        0  led_app.o(i.LED_App_AdjustBrightness)
+    i.LED_App_GetBrightness                  0x080012a8   Section        0  led_app.o(i.LED_App_GetBrightness)
+    i.LED_App_Init                           0x080012b4   Section        0  led_app.o(i.LED_App_Init)
+    i.MemManage_Handler                      0x080012d0   Section        0  stm32f10x_it.o(i.MemManage_Handler)
+    i.Menu_Init                              0x080012d4   Section        0  menu.o(i.Menu_Init)
+    i.Menu_Process                           0x0800132c   Section        0  menu.o(i.Menu_Process)
+    i.My_SI2C_Init                           0x08001414   Section        0  si2c.o(i.My_SI2C_Init)
+    i.My_SI2C_SendBytes                      0x08001500   Section        0  si2c.o(i.My_SI2C_SendBytes)
+    i.NMI_Handler                            0x08001576   Section        0  stm32f10x_it.o(i.NMI_Handler)
+    i.OLED_Clear                             0x08001578   Section        0  oled.o(i.OLED_Clear)
+    i.OLED_DrawCircle                        0x08001588   Section        0  oled.o(i.OLED_DrawCircle)
+    i.OLED_DrawRect                          0x080015bc   Section        0  oled.o(i.OLED_DrawRect)
+    i.OLED_DrawSelectionPill                 0x080015f4   Section        0  menu.o(i.OLED_DrawSelectionPill)
+    OLED_DrawSelectionPill                   0x080015f5   Thumb Code   112  menu.o(i.OLED_DrawSelectionPill)
+    i.OLED_DrawString                        0x08001668   Section        0  oled.o(i.OLED_DrawString)
+    i.OLED_GetScreenWidth                    0x08001798   Section        0  oled.o(i.OLED_GetScreenWidth)
+    i.OLED_GetStrWidth                       0x0800179e   Section        0  oled.o(i.OLED_GetStrWidth)
+    i.OLED_Init                              0x080018f4   Section        0  oled.o(i.OLED_Init)
+    i.OLED_SendBuffer                        0x08001ac0   Section        0  oled.o(i.OLED_SendBuffer)
+    i.OLED_SendCommand                       0x08001b36   Section        0  oled.o(i.OLED_SendCommand)
+    OLED_SendCommand                         0x08001b37   Thumb Code    66  oled.o(i.OLED_SendCommand)
+    i.OLED_SendData                          0x08001b78   Section        0  oled.o(i.OLED_SendData)
+    OLED_SendData                            0x08001b79   Thumb Code    48  oled.o(i.OLED_SendData)
+    i.OLED_SetBrush                          0x08001ba8   Section        0  oled.o(i.OLED_SetBrush)
+    i.OLED_SetCursor                         0x08001bac   Section        0  oled.o(i.OLED_SetCursor)
+    i.OLED_SetFont                           0x08001bb2   Section        0  oled.o(i.OLED_SetFont)
+    i.OLED_SetPen                            0x08001bb6   Section        0  oled.o(i.OLED_SetPen)
+    i.OLED_ShowLEDControl                    0x08001bbc   Section        0  menu.o(i.OLED_ShowLEDControl)
+    OLED_ShowLEDControl                      0x08001bbd   Thumb Code   582  menu.o(i.OLED_ShowLEDControl)
+    i.OLED_ShowMenu                          0x08001e3c   Section        0  menu.o(i.OLED_ShowMenu)
+    OLED_ShowMenu                            0x08001e3d   Thumb Code   478  menu.o(i.OLED_ShowMenu)
+    i.OLED_ShowWelcome                       0x08002044   Section        0  menu.o(i.OLED_ShowWelcome)
+    OLED_ShowWelcome                         0x08002045   Thumb Code    74  menu.o(i.OLED_ShowWelcome)
+    i.OLED_UpdateSelector                    0x080020a8   Section        0  menu.o(i.OLED_UpdateSelector)
+    OLED_UpdateSelector                      0x080020a9   Thumb Code    78  menu.o(i.OLED_UpdateSelector)
+    i.PenDot                                 0x08002104   Section        0  oled.o(i.PenDot)
+    PenDot                                   0x08002105   Thumb Code   160  oled.o(i.PenDot)
+    i.PendSV_Handler                         0x080021a4   Section        0  stm32f10x_it.o(i.PendSV_Handler)
+    i.RCC_APB1PeriphClockCmd                 0x080021a8   Section        0  stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd)
+    i.RCC_APB2PeriphClockCmd                 0x080021c8   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    i.RCC_GetClocksFreq                      0x080021e8   Section        0  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
+    i.ReadPin                                0x080022bc   Section        0  encoder.o(i.ReadPin)
+    ReadPin                                  0x080022bd   Thumb Code    22  encoder.o(i.ReadPin)
+    i.SVC_Handler                            0x080022d8   Section        0  stm32f10x_it.o(i.SVC_Handler)
+    i.SendByte                               0x080022da   Section        0  si2c.o(i.SendByte)
+    SendByte                                 0x080022db   Thumb Code   134  si2c.o(i.SendByte)
+    i.SendStop                               0x08002360   Section        0  si2c.o(i.SendStop)
+    SendStop                                 0x08002361   Thumb Code    70  si2c.o(i.SendStop)
+    i.SetSysClock                            0x080023a6   Section        0  system_stm32f10x.o(i.SetSysClock)
+    SetSysClock                              0x080023a7   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
+    i.SetSysClockTo72                        0x080023b0   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
+    SetSysClockTo72                          0x080023b1   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
+    i.SysTick_Handler                        0x08002490   Section        0  stm32f10x_it.o(i.SysTick_Handler)
+    i.SystemInit                             0x080024a8   Section        0  system_stm32f10x.o(i.SystemInit)
+    i.TIM_ARRPreloadConfig                   0x08002508   Section        0  stm32f10x_tim.o(i.TIM_ARRPreloadConfig)
+    i.TIM_Cmd                                0x08002520   Section        0  stm32f10x_tim.o(i.TIM_Cmd)
+    i.TIM_OC1Init                            0x08002538   Section        0  stm32f10x_tim.o(i.TIM_OC1Init)
+    i.TIM_OC1PreloadConfig                   0x080025d0   Section        0  stm32f10x_tim.o(i.TIM_OC1PreloadConfig)
+    i.TIM_OCStructInit                       0x080025e2   Section        0  stm32f10x_tim.o(i.TIM_OCStructInit)
+    i.TIM_SetCompare1                        0x080025f6   Section        0  stm32f10x_tim.o(i.TIM_SetCompare1)
+    i.TIM_TimeBaseInit                       0x080025fc   Section        0  stm32f10x_tim.o(i.TIM_TimeBaseInit)
+    i.TIM_TimeBaseStructInit                 0x080026a0   Section        0  stm32f10x_tim.o(i.TIM_TimeBaseStructInit)
+    i.UsageFault_Handler                     0x080026b2   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
+    i.__scatterload_copy                     0x080026b6   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x080026c4   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x080026c6   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.ceil                                   0x080026d4   Section        0  ceil.o(i.ceil)
+    i.delay                                  0x080027b0   Section        0  si2c.o(i.delay)
+    i.main                                   0x080027c0   Section        0  main.o(i.main)
+    i.malloc                                 0x080027ec   Section        0  malloc.o(i.malloc)
+    i.unicode_2_glyph_idx                    0x08002858   Section        0  oled.o(i.unicode_2_glyph_idx)
+    unicode_2_glyph_idx                      0x08002859   Thumb Code    54  oled.o(i.unicode_2_glyph_idx)
+    .constdata                               0x0800288e   Section       16  encoder.o(.constdata)
+    transition_table                         0x0800288e   Data          16  encoder.o(.constdata)
+    .constdata                               0x080028a0   Section     5172  oled.o(.constdata)
+    default_font_GlyphBitmap_0020            0x080028a0   Data           1  oled.o(.constdata)
+    default_font_GlyphBitmap_0021            0x080028a1   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0022            0x080028a8   Data           3  oled.o(.constdata)
+    default_font_GlyphBitmap_0023            0x080028ab   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0024            0x080028b2   Data           6  oled.o(.constdata)
+    default_font_GlyphBitmap_0025            0x080028b8   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0026            0x080028bf   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0027            0x080028c6   Data           3  oled.o(.constdata)
+    default_font_GlyphBitmap_0028            0x080028c9   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0029            0x080028d0   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_002A            0x080028d7   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_002B            0x080028dc   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_002C            0x080028e1   Data           3  oled.o(.constdata)
+    default_font_GlyphBitmap_002D            0x080028e4   Data           1  oled.o(.constdata)
+    default_font_GlyphBitmap_002E            0x080028e5   Data           2  oled.o(.constdata)
+    default_font_GlyphBitmap_002F            0x080028e7   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0030            0x080028ec   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0031            0x080028f3   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0032            0x080028fa   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0033            0x08002901   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0034            0x08002908   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0035            0x0800290f   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0036            0x08002916   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0037            0x0800291d   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0038            0x08002924   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0039            0x0800292b   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_003A            0x08002932   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_003B            0x08002937   Data           6  oled.o(.constdata)
+    default_font_GlyphBitmap_003C            0x0800293d   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_003D            0x08002944   Data           3  oled.o(.constdata)
+    default_font_GlyphBitmap_003E            0x08002947   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_003F            0x0800294e   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0040            0x08002955   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0041            0x0800295c   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0042            0x08002963   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0043            0x0800296a   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0044            0x08002971   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0045            0x08002978   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0046            0x0800297f   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0047            0x08002986   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0048            0x0800298d   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0049            0x08002994   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_004A            0x0800299b   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_004B            0x080029a2   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_004C            0x080029a9   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_004D            0x080029b0   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_004E            0x080029b7   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_004F            0x080029be   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0050            0x080029c5   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0051            0x080029cc   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0052            0x080029d3   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0053            0x080029da   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0054            0x080029e1   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0055            0x080029e8   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0056            0x080029ef   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0057            0x080029f6   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0058            0x080029fd   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0059            0x08002a04   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_005A            0x08002a0b   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_005B            0x08002a12   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_005C            0x08002a19   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_005D            0x08002a1e   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_005E            0x08002a25   Data           3  oled.o(.constdata)
+    default_font_GlyphBitmap_005F            0x08002a28   Data           1  oled.o(.constdata)
+    default_font_GlyphBitmap_0060            0x08002a29   Data           3  oled.o(.constdata)
+    default_font_GlyphBitmap_0061            0x08002a2c   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0062            0x08002a31   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0063            0x08002a38   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0064            0x08002a3d   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0065            0x08002a44   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0066            0x08002a49   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0067            0x08002a50   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0068            0x08002a55   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0069            0x08002a5c   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_006A            0x08002a63   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_006B            0x08002a6a   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_006C            0x08002a71   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_006D            0x08002a78   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_006E            0x08002a7d   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_006F            0x08002a82   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0070            0x08002a87   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0071            0x08002a8c   Data           6  oled.o(.constdata)
+    default_font_GlyphBitmap_0072            0x08002a92   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0073            0x08002a97   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0074            0x08002a9c   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_0075            0x08002aa3   Data           6  oled.o(.constdata)
+    default_font_GlyphBitmap_0076            0x08002aa9   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0077            0x08002aae   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0078            0x08002ab3   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_0079            0x08002ab8   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_007A            0x08002abd   Data           5  oled.o(.constdata)
+    default_font_GlyphBitmap_007B            0x08002ac2   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_007C            0x08002ac9   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_007D            0x08002ad0   Data           7  oled.o(.constdata)
+    default_font_GlyphBitmap_007E            0x08002ad7   Data           3  oled.o(.constdata)
+    default_font_Map                         0x08002adc   Data         380  oled.o(.constdata)
+    default_font_Glyphs                      0x08002c58   Data        4180  oled.o(.constdata)
+    .constdata                               0x08003cd4   Section      996  menu.o(.constdata)
+    menu_font_GlyphBitmap_6B22               0x08003cd4   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_8FCE               0x08003cf4   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_4F7F               0x08003d14   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_7528               0x08003d34   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_98CE               0x08003d54   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_6247               0x08003d74   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_63A7               0x08003d94   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_5236               0x08003db4   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_6447               0x08003dd4   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_6746               0x08003df4   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_6570               0x08003e14   Data          32  menu.o(.constdata)
+    menu_font_GlyphBitmap_636E               0x08003e34   Data          32  menu.o(.constdata)
+    menu_font_Map                            0x08003e54   Data          48  menu.o(.constdata)
+    menu_font_Glyphs                         0x08003e84   Data         528  menu.o(.constdata)
+    menu_font                                0x08004094   Data          36  menu.o(.constdata)
+    .conststring                             0x080040b8   Section      773  oled.o(.conststring)
+    .conststring                             0x080043c0   Section      149  menu.o(.conststring)
+    .data                                    0x20000000   Section       20  stm32f10x_rcc.o(.data)
+    APBAHBPrescTable                         0x20000000   Data          16  stm32f10x_rcc.o(.data)
+    ADCPrescTable                            0x20000010   Data           4  stm32f10x_rcc.o(.data)
+    .data                                    0x20000014   Section       12  delay.o(.data)
+    delay_initialized_flag                   0x20000018   Data           1  delay.o(.data)
+    us_per_mini_tick                         0x2000001c   Data           4  delay.o(.data)
+    .data                                    0x20000020   Section        4  encoder.o(.data)
+    active_encoder                           0x20000020   Data           4  encoder.o(.data)
+    .data                                    0x20000024   Section       16  oled.o(.data)
+    OLED_SI2C                                0x20000024   Data          16  oled.o(.data)
+    .data                                    0x20000034   Section       28  menu.o(.data)
+    menu_display                             0x20000034   Data           4  menu.o(.data)
+    selected_item                            0x20000038   Data           1  menu.o(.data)
+    in_submenu                               0x20000039   Data           1  menu.o(.data)
+    screen_needs_refresh                     0x2000003a   Data           1  menu.o(.data)
+    menu_ready                               0x2000003b   Data           1  menu.o(.data)
+    welcome_started_at                       0x2000003c   Data           4  menu.o(.data)
+    selector_y                               0x20000040   Data           2  menu.o(.data)
+    menu_items                               0x20000044   Data          12  menu.o(.data)
+    .data                                    0x20000050   Section        1  led_app.o(.data)
+    brightness                               0x20000050   Data           1  led_app.o(.data)
+    .data                                    0x20000054   Section        4  mvars.o(.data)
+    .data                                    0x20000058   Section        4  mvars.o(.data)
+    .bss                                     0x2000005c   Section       40  main.o(.bss)
+    display                                  0x2000005c   Data          40  main.o(.bss)
+    .bss                                     0x20000084   Section       36  menu.o(.bss)
+    menu_encoder                             0x20000084   Data          36  menu.o(.bss)
+    HEAP                                     0x200000a8   Section     4096  startup_stm32f10x_md.o(HEAP)
+    STACK                                    0x200010a8   Section     4096  startup_stm32f10x_md.o(STACK)
 
     Global Symbols
 
@@ -1497,55 +1590,74 @@ Image Symbol Table
     __aeabi_cdrcmple                         0x08000589   Thumb Code    48  cdrcmple.o(.text)
     __scatterload                            0x080005b9   Thumb Code    28  init.o(.text)
     __scatterload_rt2                        0x080005b9   Thumb Code     0  init.o(.text)
-    BusFault_Handler                         0x080006a7   Thumb Code     4  stm32f10x_it.o(i.BusFault_Handler)
-    DebugMon_Handler                         0x080006ab   Thumb Code     2  stm32f10x_it.o(i.DebugMon_Handler)
-    Delay                                    0x080006ad   Thumb Code    32  delay.o(i.Delay)
-    Delay_Init                               0x080006d1   Thumb Code   192  delay.o(i.Delay_Init)
-    GPIO_Init                                0x08000ba9   Thumb Code   278  stm32f10x_gpio.o(i.GPIO_Init)
-    GPIO_ReadInputDataBit                    0x08000cbf   Thumb Code    18  stm32f10x_gpio.o(i.GPIO_ReadInputDataBit)
-    GPIO_WriteBit                            0x08000cd1   Thumb Code    10  stm32f10x_gpio.o(i.GPIO_WriteBit)
-    GetTick                                  0x08000dd9   Thumb Code    12  delay.o(i.GetTick)
-    HardFault_Handler                        0x08000de9   Thumb Code     4  stm32f10x_it.o(i.HardFault_Handler)
-    MemManage_Handler                        0x08000ded   Thumb Code     4  stm32f10x_it.o(i.MemManage_Handler)
-    My_Button_Init                           0x08000df1   Thumb Code   118  button.o(i.My_Button_Init)
-    My_Button_Proc                           0x08000e67   Thumb Code   128  button.o(i.My_Button_Proc)
-    My_SI2C_Init                             0x08000ee9   Thumb Code   218  si2c.o(i.My_SI2C_Init)
-    My_SI2C_SendBytes                        0x08000fd5   Thumb Code   118  si2c.o(i.My_SI2C_SendBytes)
-    NMI_Handler                              0x0800104b   Thumb Code     2  stm32f10x_it.o(i.NMI_Handler)
-    OLED_Clear                               0x0800104d   Thumb Code    16  oled.o(i.OLED_Clear)
-    OLED_DrawRect                            0x0800105d   Thumb Code    54  oled.o(i.OLED_DrawRect)
-    OLED_DrawString                          0x08001093   Thumb Code   304  oled.o(i.OLED_DrawString)
-    OLED_GetScreenWidth                      0x080011c3   Thumb Code     6  oled.o(i.OLED_GetScreenWidth)
-    OLED_GetStrWidth                         0x080011c9   Thumb Code   340  oled.o(i.OLED_GetStrWidth)
-    OLED_Init                                0x08001339   Thumb Code   454  oled.o(i.OLED_Init)
-    OLED_SendBuffer                          0x08001505   Thumb Code   118  oled.o(i.OLED_SendBuffer)
-    OLED_SetBrush                            0x080015ed   Thumb Code     4  oled.o(i.OLED_SetBrush)
-    OLED_SetCursor                           0x080015f1   Thumb Code     6  oled.o(i.OLED_SetCursor)
-    OLED_SetFont                             0x080015f7   Thumb Code     4  oled.o(i.OLED_SetFont)
-    OLED_SetPen                              0x080015fb   Thumb Code     6  oled.o(i.OLED_SetPen)
-    PendSV_Handler                           0x08001a51   Thumb Code     2  stm32f10x_it.o(i.PendSV_Handler)
-    RCC_APB2PeriphClockCmd                   0x08001a55   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    RCC_GetClocksFreq                        0x08001a75   Thumb Code   192  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
-    SVC_Handler                              0x08001b49   Thumb Code     2  stm32f10x_it.o(i.SVC_Handler)
-    SysTick_Handler                          0x08001d01   Thumb Code    20  stm32f10x_it.o(i.SysTick_Handler)
-    SystemInit                               0x08001d19   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
-    UsageFault_Handler                       0x08001d79   Thumb Code     4  stm32f10x_it.o(i.UsageFault_Handler)
-    __scatterload_copy                       0x08001d7d   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x08001d8b   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x08001d8d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    ceil                                     0x08001d9d   Thumb Code   204  ceil.o(i.ceil)
-    delay                                    0x08001e79   Thumb Code    14  si2c.o(i.delay)
-    main                                     0x08001e89   Thumb Code   166  main.o(i.main)
-    malloc                                   0x08001f61   Thumb Code    92  malloc.o(i.malloc)
-    default_font                             0x080037f8   Data          36  oled.o(.constdata)
-    Region$$Table$$Base                      0x08003bc0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08003be0   Number         0  anon$$obj.o(Region$$Table)
-    ulTicks                                  0x20000034   Data           4  delay.o(.data)
-    __microlib_freelist                      0x20000040   Data           4  mvars.o(.data)
-    __microlib_freelist_initialised          0x20000044   Data           4  mvars.o(.data)
-    __heap_base                              0x20000130   Data           0  startup_stm32f10x_md.o(HEAP)
-    __heap_limit                             0x20001130   Data           0  startup_stm32f10x_md.o(HEAP)
-    __initial_sp                             0x20002130   Data           0  startup_stm32f10x_md.o(STACK)
+    BSP_Encoder_Init                         0x080005dd   Thumb Code   110  encoder.o(i.BSP_Encoder_Init)
+    BSP_Encoder_Process                      0x08000655   Thumb Code    86  encoder.o(i.BSP_Encoder_Process)
+    BSP_Encoder_Tick                         0x080006ad   Thumb Code   240  encoder.o(i.BSP_Encoder_Tick)
+    BSP_LED_PWM_Init                         0x080007a5   Thumb Code   150  led_pwm.o(i.BSP_LED_PWM_Init)
+    BSP_LED_PWM_SetBrightness                0x08000845   Thumb Code    34  led_pwm.o(i.BSP_LED_PWM_SetBrightness)
+    BSP_OLED_Init                            0x08000889   Thumb Code    26  oled.o(i.BSP_OLED_Init)
+    BusFault_Handler                         0x08000977   Thumb Code     4  stm32f10x_it.o(i.BusFault_Handler)
+    DebugMon_Handler                         0x0800097b   Thumb Code     2  stm32f10x_it.o(i.DebugMon_Handler)
+    Delay                                    0x0800097d   Thumb Code    32  delay.o(i.Delay)
+    Delay_Init                               0x080009a1   Thumb Code   192  delay.o(i.Delay_Init)
+    GPIO_Init                                0x08000ffb   Thumb Code   278  stm32f10x_gpio.o(i.GPIO_Init)
+    GPIO_ReadInputDataBit                    0x08001111   Thumb Code    18  stm32f10x_gpio.o(i.GPIO_ReadInputDataBit)
+    GPIO_WriteBit                            0x08001123   Thumb Code    10  stm32f10x_gpio.o(i.GPIO_WriteBit)
+    GetTick                                  0x0800122d   Thumb Code    12  delay.o(i.GetTick)
+    HardFault_Handler                        0x0800123d   Thumb Code     4  stm32f10x_it.o(i.HardFault_Handler)
+    LED_App_AdjustBrightness                 0x08001241   Thumb Code    98  led_app.o(i.LED_App_AdjustBrightness)
+    LED_App_GetBrightness                    0x080012a9   Thumb Code     6  led_app.o(i.LED_App_GetBrightness)
+    LED_App_Init                             0x080012b5   Thumb Code    22  led_app.o(i.LED_App_Init)
+    MemManage_Handler                        0x080012d1   Thumb Code     4  stm32f10x_it.o(i.MemManage_Handler)
+    Menu_Init                                0x080012d5   Thumb Code    54  menu.o(i.Menu_Init)
+    Menu_Process                             0x0800132d   Thumb Code   208  menu.o(i.Menu_Process)
+    My_SI2C_Init                             0x08001415   Thumb Code   218  si2c.o(i.My_SI2C_Init)
+    My_SI2C_SendBytes                        0x08001501   Thumb Code   118  si2c.o(i.My_SI2C_SendBytes)
+    NMI_Handler                              0x08001577   Thumb Code     2  stm32f10x_it.o(i.NMI_Handler)
+    OLED_Clear                               0x08001579   Thumb Code    16  oled.o(i.OLED_Clear)
+    OLED_DrawCircle                          0x08001589   Thumb Code    52  oled.o(i.OLED_DrawCircle)
+    OLED_DrawRect                            0x080015bd   Thumb Code    54  oled.o(i.OLED_DrawRect)
+    OLED_DrawString                          0x08001669   Thumb Code   304  oled.o(i.OLED_DrawString)
+    OLED_GetScreenWidth                      0x08001799   Thumb Code     6  oled.o(i.OLED_GetScreenWidth)
+    OLED_GetStrWidth                         0x0800179f   Thumb Code   340  oled.o(i.OLED_GetStrWidth)
+    OLED_Init                                0x080018f5   Thumb Code   454  oled.o(i.OLED_Init)
+    OLED_SendBuffer                          0x08001ac1   Thumb Code   118  oled.o(i.OLED_SendBuffer)
+    OLED_SetBrush                            0x08001ba9   Thumb Code     4  oled.o(i.OLED_SetBrush)
+    OLED_SetCursor                           0x08001bad   Thumb Code     6  oled.o(i.OLED_SetCursor)
+    OLED_SetFont                             0x08001bb3   Thumb Code     4  oled.o(i.OLED_SetFont)
+    OLED_SetPen                              0x08001bb7   Thumb Code     6  oled.o(i.OLED_SetPen)
+    PendSV_Handler                           0x080021a5   Thumb Code     2  stm32f10x_it.o(i.PendSV_Handler)
+    RCC_APB1PeriphClockCmd                   0x080021a9   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd)
+    RCC_APB2PeriphClockCmd                   0x080021c9   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    RCC_GetClocksFreq                        0x080021e9   Thumb Code   192  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
+    SVC_Handler                              0x080022d9   Thumb Code     2  stm32f10x_it.o(i.SVC_Handler)
+    SysTick_Handler                          0x08002491   Thumb Code    18  stm32f10x_it.o(i.SysTick_Handler)
+    SystemInit                               0x080024a9   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
+    TIM_ARRPreloadConfig                     0x08002509   Thumb Code    24  stm32f10x_tim.o(i.TIM_ARRPreloadConfig)
+    TIM_Cmd                                  0x08002521   Thumb Code    24  stm32f10x_tim.o(i.TIM_Cmd)
+    TIM_OC1Init                              0x08002539   Thumb Code   132  stm32f10x_tim.o(i.TIM_OC1Init)
+    TIM_OC1PreloadConfig                     0x080025d1   Thumb Code    18  stm32f10x_tim.o(i.TIM_OC1PreloadConfig)
+    TIM_OCStructInit                         0x080025e3   Thumb Code    20  stm32f10x_tim.o(i.TIM_OCStructInit)
+    TIM_SetCompare1                          0x080025f7   Thumb Code     4  stm32f10x_tim.o(i.TIM_SetCompare1)
+    TIM_TimeBaseInit                         0x080025fd   Thumb Code   122  stm32f10x_tim.o(i.TIM_TimeBaseInit)
+    TIM_TimeBaseStructInit                   0x080026a1   Thumb Code    18  stm32f10x_tim.o(i.TIM_TimeBaseStructInit)
+    UsageFault_Handler                       0x080026b3   Thumb Code     4  stm32f10x_it.o(i.UsageFault_Handler)
+    __scatterload_copy                       0x080026b7   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x080026c5   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x080026c7   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    ceil                                     0x080026d5   Thumb Code   204  ceil.o(i.ceil)
+    delay                                    0x080027b1   Thumb Code    14  si2c.o(i.delay)
+    main                                     0x080027c1   Thumb Code    40  main.o(i.main)
+    malloc                                   0x080027ed   Thumb Code    92  malloc.o(i.malloc)
+    default_font                             0x08003cac   Data          36  oled.o(.constdata)
+    Region$$Table$$Base                      0x08004458   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08004478   Number         0  anon$$obj.o(Region$$Table)
+    ulTicks                                  0x20000014   Data           4  delay.o(.data)
+    __microlib_freelist                      0x20000054   Data           4  mvars.o(.data)
+    __microlib_freelist_initialised          0x20000058   Data           4  mvars.o(.data)
+    __heap_base                              0x200000a8   Data           0  startup_stm32f10x_md.o(HEAP)
+    __heap_limit                             0x200010a8   Data           0  startup_stm32f10x_md.o(HEAP)
+    __initial_sp                             0x200020a8   Data           0  startup_stm32f10x_md.o(STACK)
 
 
 
@@ -1555,132 +1667,158 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003c28, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000044d4, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00003be0, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00004478, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x000000ec   Data   RO          298    RESET               startup_stm32f10x_md.o
-    0x080000ec   0x080000ec   0x00000000   Code   RO         4172  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x080000ec   0x080000ec   0x00000004   Code   RO         4257    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x080000f0   0x080000f0   0x00000004   Code   RO         4260    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x080000f4   0x080000f4   0x00000000   Code   RO         4262    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x080000f4   0x080000f4   0x00000000   Code   RO         4264    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x080000f4   0x080000f4   0x00000008   Code   RO         4265    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080000fc   0x080000fc   0x00000004   Code   RO         4272    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
-    0x08000100   0x08000100   0x00000000   Code   RO         4267    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
-    0x08000100   0x08000100   0x00000000   Code   RO         4269    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
-    0x08000100   0x08000100   0x00000004   Code   RO         4258    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x08000104   0x08000104   0x00000024   Code   RO          299    .text               startup_stm32f10x_md.o
-    0x08000128   0x08000128   0x00000024   Code   RO         4175    .text               mc_w.l(memseta.o)
-    0x0800014c   0x0800014c   0x0000014e   Code   RO         4237    .text               mf_w.l(dadd.o)
-    0x0800029a   0x0800029a   0x000000de   Code   RO         4241    .text               mf_w.l(ddiv.o)
-    0x08000378   0x08000378   0x0000001a   Code   RO         4247    .text               mf_w.l(dfltui.o)
-    0x08000392   0x08000392   0x00000032   Code   RO         4253    .text               mf_w.l(dfixui.o)
-    0x080003c4   0x080003c4   0x00000038   Code   RO         4255    .text               mf_w.l(d2f.o)
-    0x080003fc   0x080003fc   0x0000001e   Code   RO         4280    .text               mc_w.l(llshl.o)
-    0x0800041a   0x0800041a   0x00000020   Code   RO         4282    .text               mc_w.l(llushr.o)
-    0x0800043a   0x0800043a   0x00000024   Code   RO         4284    .text               mc_w.l(llsshr.o)
-    0x0800045e   0x0800045e   0x00000000   Code   RO         4292    .text               mc_w.l(iusefp.o)
-    0x0800045e   0x0800045e   0x0000006e   Code   RO         4293    .text               mf_w.l(fepilogue.o)
-    0x080004cc   0x080004cc   0x000000ba   Code   RO         4295    .text               mf_w.l(depilogue.o)
+    0x08000000   0x08000000   0x000000ec   Data   RO          261    RESET               startup_stm32f10x_md.o
+    0x080000ec   0x080000ec   0x00000000   Code   RO         4340  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x080000ec   0x080000ec   0x00000004   Code   RO         4425    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x080000f0   0x080000f0   0x00000004   Code   RO         4428    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080000f4   0x080000f4   0x00000000   Code   RO         4430    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080000f4   0x080000f4   0x00000000   Code   RO         4432    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x080000f4   0x080000f4   0x00000008   Code   RO         4433    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080000fc   0x080000fc   0x00000004   Code   RO         4440    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
+    0x08000100   0x08000100   0x00000000   Code   RO         4435    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
+    0x08000100   0x08000100   0x00000000   Code   RO         4437    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
+    0x08000100   0x08000100   0x00000004   Code   RO         4426    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000104   0x08000104   0x00000024   Code   RO          262    .text               startup_stm32f10x_md.o
+    0x08000128   0x08000128   0x00000024   Code   RO         4343    .text               mc_w.l(memseta.o)
+    0x0800014c   0x0800014c   0x0000014e   Code   RO         4405    .text               mf_w.l(dadd.o)
+    0x0800029a   0x0800029a   0x000000de   Code   RO         4409    .text               mf_w.l(ddiv.o)
+    0x08000378   0x08000378   0x0000001a   Code   RO         4415    .text               mf_w.l(dfltui.o)
+    0x08000392   0x08000392   0x00000032   Code   RO         4421    .text               mf_w.l(dfixui.o)
+    0x080003c4   0x080003c4   0x00000038   Code   RO         4423    .text               mf_w.l(d2f.o)
+    0x080003fc   0x080003fc   0x0000001e   Code   RO         4448    .text               mc_w.l(llshl.o)
+    0x0800041a   0x0800041a   0x00000020   Code   RO         4450    .text               mc_w.l(llushr.o)
+    0x0800043a   0x0800043a   0x00000024   Code   RO         4452    .text               mc_w.l(llsshr.o)
+    0x0800045e   0x0800045e   0x00000000   Code   RO         4460    .text               mc_w.l(iusefp.o)
+    0x0800045e   0x0800045e   0x0000006e   Code   RO         4461    .text               mf_w.l(fepilogue.o)
+    0x080004cc   0x080004cc   0x000000ba   Code   RO         4463    .text               mf_w.l(depilogue.o)
     0x08000586   0x08000586   0x00000002   PAD
-    0x08000588   0x08000588   0x00000030   Code   RO         4303    .text               mf_w.l(cdrcmple.o)
-    0x080005b8   0x080005b8   0x00000024   Code   RO         4305    .text               mc_w.l(init.o)
-    0x080005dc   0x080005dc   0x000000ca   Code   RO         3775    i.BrushDot          oled.o
-    0x080006a6   0x080006a6   0x00000004   Code   RO          223    i.BusFault_Handler  stm32f10x_it.o
-    0x080006aa   0x080006aa   0x00000002   Code   RO          224    i.DebugMon_Handler  stm32f10x_it.o
-    0x080006ac   0x080006ac   0x00000024   Code   RO         3549    i.Delay             delay.o
-    0x080006d0   0x080006d0   0x000000d4   Code   RO         3551    i.Delay_Init        delay.o
-    0x080007a4   0x080007a4   0x000000b8   Code   RO         3776    i.DrawBitmapEx      oled.o
-    0x0800085c   0x0800085c   0x000001ba   Code   RO         3777    i.DrawCharator      oled.o
-    0x08000a16   0x08000a16   0x000000e8   Code   RO         3779    i.DrawRectFrame     oled.o
-    0x08000afe   0x08000afe   0x00000048   Code   RO         3781    i.FillRect          oled.o
-    0x08000b46   0x08000b46   0x00000002   PAD
-    0x08000b48   0x08000b48   0x00000060   Code   RO         4083    i.GPIOClockCmd      button.o
-    0x08000ba8   0x08000ba8   0x00000116   Code   RO         1601    i.GPIO_Init         stm32f10x_gpio.o
-    0x08000cbe   0x08000cbe   0x00000012   Code   RO         1605    i.GPIO_ReadInputDataBit  stm32f10x_gpio.o
-    0x08000cd0   0x08000cd0   0x0000000a   Code   RO         1612    i.GPIO_WriteBit     stm32f10x_gpio.o
-    0x08000cda   0x08000cda   0x00000034   Code   RO         3782    i.GetGlyphWidth     oled.o
-    0x08000d0e   0x08000d0e   0x000000ca   Code   RO         3783    i.GetOverlappedRect  oled.o
-    0x08000dd8   0x08000dd8   0x00000010   Code   RO         3552    i.GetTick           delay.o
-    0x08000de8   0x08000de8   0x00000004   Code   RO          225    i.HardFault_Handler  stm32f10x_it.o
-    0x08000dec   0x08000dec   0x00000004   Code   RO          226    i.MemManage_Handler  stm32f10x_it.o
-    0x08000df0   0x08000df0   0x00000076   Code   RO         4085    i.My_Button_Init    button.o
-    0x08000e66   0x08000e66   0x00000080   Code   RO         4086    i.My_Button_Proc    button.o
-    0x08000ee6   0x08000ee6   0x00000002   PAD
-    0x08000ee8   0x08000ee8   0x000000ec   Code   RO         3715    i.My_SI2C_Init      si2c.o
-    0x08000fd4   0x08000fd4   0x00000076   Code   RO         3717    i.My_SI2C_SendBytes  si2c.o
-    0x0800104a   0x0800104a   0x00000002   Code   RO          227    i.NMI_Handler       stm32f10x_it.o
-    0x0800104c   0x0800104c   0x00000010   Code   RO         3784    i.OLED_Clear        oled.o
-    0x0800105c   0x0800105c   0x00000036   Code   RO         3789    i.OLED_DrawRect     oled.o
-    0x08001092   0x08001092   0x00000130   Code   RO         3790    i.OLED_DrawString   oled.o
-    0x080011c2   0x080011c2   0x00000006   Code   RO         3797    i.OLED_GetScreenWidth  oled.o
-    0x080011c8   0x080011c8   0x00000154   Code   RO         3798    i.OLED_GetStrWidth  oled.o
-    0x0800131c   0x0800131c   0x0000001c   Code   RO            4    i.OLED_I2C_Write    main.o
-    0x08001338   0x08001338   0x000001cc   Code   RO         3799    i.OLED_Init         oled.o
-    0x08001504   0x08001504   0x00000076   Code   RO         3805    i.OLED_SendBuffer   oled.o
-    0x0800157a   0x0800157a   0x00000042   Code   RO         3806    i.OLED_SendCommand  oled.o
-    0x080015bc   0x080015bc   0x00000030   Code   RO         3807    i.OLED_SendData     oled.o
-    0x080015ec   0x080015ec   0x00000004   Code   RO         3808    i.OLED_SetBrush     oled.o
-    0x080015f0   0x080015f0   0x00000006   Code   RO         3809    i.OLED_SetCursor    oled.o
-    0x080015f6   0x080015f6   0x00000004   Code   RO         3812    i.OLED_SetFont      oled.o
-    0x080015fa   0x080015fa   0x00000006   Code   RO         3813    i.OLED_SetPen       oled.o
-    0x08001600   0x08001600   0x000001ec   Code   RO            5    i.OLED_ShowMenu     main.o
-    0x080017ec   0x080017ec   0x00000054   Code   RO            6    i.OLED_ShowWelcome  main.o
-    0x08001840   0x08001840   0x00000030   Code   RO            7    i.OnButtonDown      main.o
-    0x08001870   0x08001870   0x00000024   Code   RO            8    i.OnButtonEnter     main.o
-    0x08001894   0x08001894   0x00000094   Code   RO         4087    i.OnButtonEveryPolled  button.o
-    0x08001928   0x08001928   0x00000014   Code   RO         4088    i.OnButtonPressed   button.o
-    0x0800193c   0x0800193c   0x00000038   Code   RO         4089    i.OnButtonReleased  button.o
-    0x08001974   0x08001974   0x0000003c   Code   RO            9    i.OnButtonUp        main.o
-    0x080019b0   0x080019b0   0x000000a0   Code   RO         3819    i.PenDot            oled.o
-    0x08001a50   0x08001a50   0x00000002   Code   RO          228    i.PendSV_Handler    stm32f10x_it.o
-    0x08001a52   0x08001a52   0x00000002   PAD
-    0x08001a54   0x08001a54   0x00000020   Code   RO         2067    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
-    0x08001a74   0x08001a74   0x000000d4   Code   RO         2075    i.RCC_GetClocksFreq  stm32f10x_rcc.o
-    0x08001b48   0x08001b48   0x00000002   Code   RO          229    i.SVC_Handler       stm32f10x_it.o
-    0x08001b4a   0x08001b4a   0x00000086   Code   RO         3719    i.SendByte          si2c.o
-    0x08001bd0   0x08001bd0   0x00000046   Code   RO         3720    i.SendStop          si2c.o
-    0x08001c16   0x08001c16   0x00000008   Code   RO          177    i.SetSysClock       system_stm32f10x.o
-    0x08001c1e   0x08001c1e   0x00000002   PAD
-    0x08001c20   0x08001c20   0x000000e0   Code   RO          178    i.SetSysClockTo72   system_stm32f10x.o
-    0x08001d00   0x08001d00   0x00000018   Code   RO          230    i.SysTick_Handler   stm32f10x_it.o
-    0x08001d18   0x08001d18   0x00000060   Code   RO          180    i.SystemInit        system_stm32f10x.o
-    0x08001d78   0x08001d78   0x00000004   Code   RO          231    i.UsageFault_Handler  stm32f10x_it.o
-    0x08001d7c   0x08001d7c   0x0000000e   Code   RO         4311    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08001d8a   0x08001d8a   0x00000002   Code   RO         4312    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08001d8c   0x08001d8c   0x0000000e   Code   RO         4313    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x08001d9a   0x08001d9a   0x00000002   PAD
-    0x08001d9c   0x08001d9c   0x000000dc   Code   RO         4167    i.ceil              m_ws.l(ceil.o)
-    0x08001e78   0x08001e78   0x0000000e   Code   RO         3721    i.delay             si2c.o
-    0x08001e86   0x08001e86   0x00000002   PAD
-    0x08001e88   0x08001e88   0x000000d8   Code   RO           10    i.main              main.o
-    0x08001f60   0x08001f60   0x0000006c   Code   RO         4208    i.malloc            mc_w.l(malloc.o)
-    0x08001fcc   0x08001fcc   0x00000036   Code   RO         3820    i.unicode_2_glyph_idx  oled.o
-    0x08002002   0x08002002   0x00000002   PAD
-    0x08002004   0x08002004   0x000003e8   Data   RO           12    .constdata          main.o
-    0x080023ec   0x080023ec   0x00001430   Data   RO         3821    .constdata          oled.o
-    0x0800381c   0x0800381c   0x0000009d   Data   RO           13    .conststring        main.o
-    0x080038b9   0x080038b9   0x00000003   PAD
-    0x080038bc   0x080038bc   0x00000301   Data   RO         3822    .conststring        oled.o
-    0x08003bbd   0x08003bbd   0x00000003   PAD
-    0x08003bc0   0x08003bc0   0x00000020   Data   RO         4309    Region$$Table       anon$$obj.o
+    0x08000588   0x08000588   0x00000030   Code   RO         4471    .text               mf_w.l(cdrcmple.o)
+    0x080005b8   0x080005b8   0x00000024   Code   RO         4473    .text               mc_w.l(init.o)
+    0x080005dc   0x080005dc   0x00000078   Code   RO         3824    i.BSP_Encoder_Init  encoder.o
+    0x08000654   0x08000654   0x00000056   Code   RO         3825    i.BSP_Encoder_Process  encoder.o
+    0x080006aa   0x080006aa   0x00000002   PAD
+    0x080006ac   0x080006ac   0x000000f8   Code   RO         3826    i.BSP_Encoder_Tick  encoder.o
+    0x080007a4   0x080007a4   0x000000a0   Code   RO         4194    i.BSP_LED_PWM_Init  led_pwm.o
+    0x08000844   0x08000844   0x00000028   Code   RO         4195    i.BSP_LED_PWM_SetBrightness  led_pwm.o
+    0x0800086c   0x0800086c   0x0000001c   Code   RO         3874    i.BSP_OLED_I2C_Write  oled.o
+    0x08000888   0x08000888   0x00000024   Code   RO         3875    i.BSP_OLED_Init     oled.o
+    0x080008ac   0x080008ac   0x000000ca   Code   RO         3876    i.BrushDot          oled.o
+    0x08000976   0x08000976   0x00000004   Code   RO          183    i.BusFault_Handler  stm32f10x_it.o
+    0x0800097a   0x0800097a   0x00000002   Code   RO          184    i.DebugMon_Handler  stm32f10x_it.o
+    0x0800097c   0x0800097c   0x00000024   Code   RO         3512    i.Delay             delay.o
+    0x080009a0   0x080009a0   0x000000d4   Code   RO         3514    i.Delay_Init        delay.o
+    0x08000a74   0x08000a74   0x000000b8   Code   RO         3877    i.DrawBitmapEx      oled.o
+    0x08000b2c   0x08000b2c   0x000001ba   Code   RO         3878    i.DrawCharator      oled.o
+    0x08000ce6   0x08000ce6   0x00000142   Code   RO         3879    i.DrawCircleFrame   oled.o
+    0x08000e28   0x08000e28   0x000000e8   Code   RO         3880    i.DrawRectFrame     oled.o
+    0x08000f10   0x08000f10   0x000000a2   Code   RO         3881    i.FillCircle        oled.o
+    0x08000fb2   0x08000fb2   0x00000048   Code   RO         3882    i.FillRect          oled.o
+    0x08000ffa   0x08000ffa   0x00000116   Code   RO         1564    i.GPIO_Init         stm32f10x_gpio.o
+    0x08001110   0x08001110   0x00000012   Code   RO         1568    i.GPIO_ReadInputDataBit  stm32f10x_gpio.o
+    0x08001122   0x08001122   0x0000000a   Code   RO         1575    i.GPIO_WriteBit     stm32f10x_gpio.o
+    0x0800112c   0x0800112c   0x00000034   Code   RO         3883    i.GetGlyphWidth     oled.o
+    0x08001160   0x08001160   0x000000ca   Code   RO         3884    i.GetOverlappedRect  oled.o
+    0x0800122a   0x0800122a   0x00000002   PAD
+    0x0800122c   0x0800122c   0x00000010   Code   RO         3515    i.GetTick           delay.o
+    0x0800123c   0x0800123c   0x00000004   Code   RO          185    i.HardFault_Handler  stm32f10x_it.o
+    0x08001240   0x08001240   0x00000068   Code   RO         4296    i.LED_App_AdjustBrightness  led_app.o
+    0x080012a8   0x080012a8   0x0000000c   Code   RO         4297    i.LED_App_GetBrightness  led_app.o
+    0x080012b4   0x080012b4   0x0000001c   Code   RO         4298    i.LED_App_Init      led_app.o
+    0x080012d0   0x080012d0   0x00000004   Code   RO          186    i.MemManage_Handler  stm32f10x_it.o
+    0x080012d4   0x080012d4   0x00000058   Code   RO         4227    i.Menu_Init         menu.o
+    0x0800132c   0x0800132c   0x000000e8   Code   RO         4228    i.Menu_Process      menu.o
+    0x08001414   0x08001414   0x000000ec   Code   RO         3678    i.My_SI2C_Init      si2c.o
+    0x08001500   0x08001500   0x00000076   Code   RO         3680    i.My_SI2C_SendBytes  si2c.o
+    0x08001576   0x08001576   0x00000002   Code   RO          187    i.NMI_Handler       stm32f10x_it.o
+    0x08001578   0x08001578   0x00000010   Code   RO         3885    i.OLED_Clear        oled.o
+    0x08001588   0x08001588   0x00000034   Code   RO         3887    i.OLED_DrawCircle   oled.o
+    0x080015bc   0x080015bc   0x00000036   Code   RO         3890    i.OLED_DrawRect     oled.o
+    0x080015f2   0x080015f2   0x00000002   PAD
+    0x080015f4   0x080015f4   0x00000074   Code   RO         4229    i.OLED_DrawSelectionPill  menu.o
+    0x08001668   0x08001668   0x00000130   Code   RO         3891    i.OLED_DrawString   oled.o
+    0x08001798   0x08001798   0x00000006   Code   RO         3898    i.OLED_GetScreenWidth  oled.o
+    0x0800179e   0x0800179e   0x00000154   Code   RO         3899    i.OLED_GetStrWidth  oled.o
+    0x080018f2   0x080018f2   0x00000002   PAD
+    0x080018f4   0x080018f4   0x000001cc   Code   RO         3900    i.OLED_Init         oled.o
+    0x08001ac0   0x08001ac0   0x00000076   Code   RO         3906    i.OLED_SendBuffer   oled.o
+    0x08001b36   0x08001b36   0x00000042   Code   RO         3907    i.OLED_SendCommand  oled.o
+    0x08001b78   0x08001b78   0x00000030   Code   RO         3908    i.OLED_SendData     oled.o
+    0x08001ba8   0x08001ba8   0x00000004   Code   RO         3909    i.OLED_SetBrush     oled.o
+    0x08001bac   0x08001bac   0x00000006   Code   RO         3910    i.OLED_SetCursor    oled.o
+    0x08001bb2   0x08001bb2   0x00000004   Code   RO         3913    i.OLED_SetFont      oled.o
+    0x08001bb6   0x08001bb6   0x00000006   Code   RO         3914    i.OLED_SetPen       oled.o
+    0x08001bbc   0x08001bbc   0x00000280   Code   RO         4230    i.OLED_ShowLEDControl  menu.o
+    0x08001e3c   0x08001e3c   0x00000208   Code   RO         4231    i.OLED_ShowMenu     menu.o
+    0x08002044   0x08002044   0x00000064   Code   RO         4232    i.OLED_ShowWelcome  menu.o
+    0x080020a8   0x080020a8   0x0000005c   Code   RO         4233    i.OLED_UpdateSelector  menu.o
+    0x08002104   0x08002104   0x000000a0   Code   RO         3920    i.PenDot            oled.o
+    0x080021a4   0x080021a4   0x00000002   Code   RO          188    i.PendSV_Handler    stm32f10x_it.o
+    0x080021a6   0x080021a6   0x00000002   PAD
+    0x080021a8   0x080021a8   0x00000020   Code   RO         2028    i.RCC_APB1PeriphClockCmd  stm32f10x_rcc.o
+    0x080021c8   0x080021c8   0x00000020   Code   RO         2030    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
+    0x080021e8   0x080021e8   0x000000d4   Code   RO         2038    i.RCC_GetClocksFreq  stm32f10x_rcc.o
+    0x080022bc   0x080022bc   0x0000001c   Code   RO         3827    i.ReadPin           encoder.o
+    0x080022d8   0x080022d8   0x00000002   Code   RO          189    i.SVC_Handler       stm32f10x_it.o
+    0x080022da   0x080022da   0x00000086   Code   RO         3682    i.SendByte          si2c.o
+    0x08002360   0x08002360   0x00000046   Code   RO         3683    i.SendStop          si2c.o
+    0x080023a6   0x080023a6   0x00000008   Code   RO          137    i.SetSysClock       system_stm32f10x.o
+    0x080023ae   0x080023ae   0x00000002   PAD
+    0x080023b0   0x080023b0   0x000000e0   Code   RO          138    i.SetSysClockTo72   system_stm32f10x.o
+    0x08002490   0x08002490   0x00000018   Code   RO          190    i.SysTick_Handler   stm32f10x_it.o
+    0x080024a8   0x080024a8   0x00000060   Code   RO          140    i.SystemInit        system_stm32f10x.o
+    0x08002508   0x08002508   0x00000018   Code   RO         2698    i.TIM_ARRPreloadConfig  stm32f10x_tim.o
+    0x08002520   0x08002520   0x00000018   Code   RO         2710    i.TIM_Cmd           stm32f10x_tim.o
+    0x08002538   0x08002538   0x00000098   Code   RO         2739    i.TIM_OC1Init       stm32f10x_tim.o
+    0x080025d0   0x080025d0   0x00000012   Code   RO         2742    i.TIM_OC1PreloadConfig  stm32f10x_tim.o
+    0x080025e2   0x080025e2   0x00000014   Code   RO         2757    i.TIM_OCStructInit  stm32f10x_tim.o
+    0x080025f6   0x080025f6   0x00000004   Code   RO         2771    i.TIM_SetCompare1   stm32f10x_tim.o
+    0x080025fa   0x080025fa   0x00000002   PAD
+    0x080025fc   0x080025fc   0x000000a4   Code   RO         2781    i.TIM_TimeBaseInit  stm32f10x_tim.o
+    0x080026a0   0x080026a0   0x00000012   Code   RO         2782    i.TIM_TimeBaseStructInit  stm32f10x_tim.o
+    0x080026b2   0x080026b2   0x00000004   Code   RO          191    i.UsageFault_Handler  stm32f10x_it.o
+    0x080026b6   0x080026b6   0x0000000e   Code   RO         4479    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x080026c4   0x080026c4   0x00000002   Code   RO         4480    i.__scatterload_null  mc_w.l(handlers.o)
+    0x080026c6   0x080026c6   0x0000000e   Code   RO         4481    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x080026d4   0x080026d4   0x000000dc   Code   RO         4335    i.ceil              m_ws.l(ceil.o)
+    0x080027b0   0x080027b0   0x0000000e   Code   RO         3684    i.delay             si2c.o
+    0x080027be   0x080027be   0x00000002   PAD
+    0x080027c0   0x080027c0   0x0000002c   Code   RO            4    i.main              main.o
+    0x080027ec   0x080027ec   0x0000006c   Code   RO         4376    i.malloc            mc_w.l(malloc.o)
+    0x08002858   0x08002858   0x00000036   Code   RO         3921    i.unicode_2_glyph_idx  oled.o
+    0x0800288e   0x0800288e   0x00000010   Data   RO         3828    .constdata          encoder.o
+    0x0800289e   0x0800289e   0x00000002   PAD
+    0x080028a0   0x080028a0   0x00001434   Data   RO         3922    .constdata          oled.o
+    0x08003cd4   0x08003cd4   0x000003e4   Data   RO         4235    .constdata          menu.o
+    0x080040b8   0x080040b8   0x00000305   Data   RO         3923    .conststring        oled.o
+    0x080043bd   0x080043bd   0x00000003   PAD
+    0x080043c0   0x080043c0   0x00000095   Data   RO         4236    .conststring        menu.o
+    0x08004455   0x08004455   0x00000003   PAD
+    0x08004458   0x08004458   0x00000020   Data   RO         4477    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08003be0, Size: 0x00002130, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08004478, Size: 0x000020a8, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08003be0   0x00000020   Data   RW           14    .data               main.o
-    0x20000020   0x08003c00   0x00000014   Data   RW         2095    .data               stm32f10x_rcc.o
-    0x20000034   0x08003c14   0x0000000c   Data   RW         3554    .data               delay.o
-    0x20000040   0x08003c20   0x00000004   Data   RW         4290    .data               mc_w.l(mvars.o)
-    0x20000044   0x08003c24   0x00000004   Data   RW         4291    .data               mc_w.l(mvars.o)
-    0x20000048        -       0x000000e8   Zero   RW           11    .bss                main.o
-    0x20000130        -       0x00001000   Zero   RW          297    HEAP                startup_stm32f10x_md.o
-    0x20001130        -       0x00001000   Zero   RW          296    STACK               startup_stm32f10x_md.o
+    0x20000000   0x08004478   0x00000014   Data   RW         2058    .data               stm32f10x_rcc.o
+    0x20000014   0x0800448c   0x0000000c   Data   RW         3517    .data               delay.o
+    0x20000020   0x08004498   0x00000004   Data   RW         3829    .data               encoder.o
+    0x20000024   0x0800449c   0x00000010   Data   RW         3924    .data               oled.o
+    0x20000034   0x080044ac   0x0000001c   Data   RW         4237    .data               menu.o
+    0x20000050   0x080044c8   0x00000001   Data   RW         4299    .data               led_app.o
+    0x20000051   0x080044c9   0x00000003   PAD
+    0x20000054   0x080044cc   0x00000004   Data   RW         4458    .data               mc_w.l(mvars.o)
+    0x20000058   0x080044d0   0x00000004   Data   RW         4459    .data               mc_w.l(mvars.o)
+    0x2000005c        -       0x00000028   Zero   RW            5    .bss                main.o
+    0x20000084        -       0x00000024   Zero   RW         4234    .bss                menu.o
+    0x200000a8        -       0x00001000   Zero   RW          260    HEAP                startup_stm32f10x_md.o
+    0x200010a8        -       0x00001000   Zero   RW          259    STACK               startup_stm32f10x_md.o
 
 
 ==============================================================================
@@ -1690,22 +1828,26 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       566         16          0          0          0       4850   button.o
        264         28          0         12          0       2073   delay.o
-       964        148       1157         32        232     233978   main.o
-      3032         10       5937          0          0      23091   oled.o
+       482         24         16          4          0       7620   encoder.o
+       144         18          0          1          0       1566   led_app.o
+       200         16          0          0          0       1087   led_pwm.o
+        44          4          0          0         40     248582   main.o
+      1788        202       1145         28         36       5839   menu.o
+      3632         26       5945         16          0      25793   oled.o
        572         18          0          0          0       3923   si2c.o
         36          8        236          0       8192        760   startup_stm32f10x_md.o
        306          0          0          0          0       3128   stm32f10x_gpio.o
-        48          4          0          0          0       3466   stm32f10x_it.o
-       244         26          0         20          0       3833   stm32f10x_rcc.o
+        48          6          0          0          0       4362   stm32f10x_it.o
+       276         32          0         20          0       4366   stm32f10x_rcc.o
+       424         62          0          0          0       4983   stm32f10x_tim.o
        328         28          0          0          0       1825   system_stm32f10x.o
          0          0          0          0          0        632   usart.o
 
     ----------------------------------------------------------------------
-      6372        286       7368         64       8424     281559   Object Totals
+      8560        472       7382         84       8268     316539   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        12          0          6          0          0          0   (incl. Padding)
+        16          0          8          3          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1740,8 +1882,8 @@ Image component sizes
        110          0          0          0          0        168   fepilogue.o
 
     ----------------------------------------------------------------------
-      1588         48          0          8          0       1448   Library Totals
-         4          0          0          0          0          0   (incl. Padding)
+      1586         48          0          8          0       1448   Library Totals
+         2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1752,7 +1894,7 @@ Image component sizes
       1032          0          0          0          0        900   mf_w.l
 
     ----------------------------------------------------------------------
-      1588         48          0          8          0       1448   Library Totals
+      1586         48          0          8          0       1448   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1761,15 +1903,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7960        334       7368         72       8424     279519   Grand Totals
-      7960        334       7368         72       8424     279519   ELF Image Totals
-      7960        334       7368         72          0          0   ROM Totals
+     10146        520       7382         92       8268     313615   Grand Totals
+     10146        520       7382         92       8268     313615   ELF Image Totals
+     10146        520       7382         92          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                15328 (  14.97kB)
-    Total RW  Size (RW Data + ZI Data)              8496 (   8.30kB)
-    Total ROM Size (Code + RO Data + RW Data)      15400 (  15.04kB)
+    Total RO  Size (Code + RO Data)                17528 (  17.12kB)
+    Total RW  Size (RW Data + ZI Data)              8360 (   8.16kB)
+    Total ROM Size (Code + RO Data + RW Data)      17620 (  17.21kB)
 
 ==============================================================================
 

@@ -22,6 +22,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
+#include "encoder.h"
 
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
@@ -158,11 +159,12 @@ void SysTick_Handler(void)
 {
 }*/
 
-extern __IO uint64_t ulTicks;
+extern __IO uint32_t ulTicks;
 
 void SysTick_Handler(void)
 {
 	ulTicks++;
+	BSP_Encoder_Tick();
 }
 
 /**

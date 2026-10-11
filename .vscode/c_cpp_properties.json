@@ -6,6 +6,8 @@
                 "d:\\stm32-sheep\\template_LED\\std_periph_driver\\inc",
                 "d:\\stm32-sheep\\template_LED\\user",
                 "d:\\stm32-sheep\\template_LED\\my_lib",
+                "d:\\stm32-sheep\\template_LED\\BSP",
+                "d:\\stm32-sheep\\template_LED\\APP",
                 "d:\\stm32-sheep\\template_LED\\my_lib\\font",
                 "d:\\stm32-sheep\\template_LED\\my_lib\\font\\.h",
                 "D:\\Keil5\\core\\ARM\\ARMCC\\include",

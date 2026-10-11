@@ -340,7 +340,7 @@
               <MiscControls>--no-multibyte-chars</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\std_periph_driver\inc;.\user;.\my_lib;.\my_lib\font;.\my_lib\font\.h</IncludePath>
+              <IncludePath>.\std_periph_driver\inc;.\user;.\my_lib;.\BSP;.\APP;.\my_lib\font;.\my_lib\font\.h</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -700,16 +700,6 @@
               <FilePath>.\my_lib\si2c.c</FilePath>
             </File>
             <File>
-              <FileName>oled.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\my_lib\oled.h</FilePath>
-            </File>
-            <File>
-              <FileName>oled.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\my_lib\oled.c</FilePath>
-            </File>
-            <File>
               <FileName>button.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\my_lib\button.h</FilePath>
@@ -728,6 +718,66 @@
               <FileName>spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\my_lib\spi.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\oled.h</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>led_pwm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\led_pwm.h</FilePath>
+            </File>
+            <File>
+              <FileName>led_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\led_pwm.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>APP</GroupName>
+          <Files>
+            <File>
+              <FileName>menu.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\APP\menu.h</FilePath>
+            </File>
+            <File>
+              <FileName>menu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>led_app.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\APP\led_app.h</FilePath>
+            </File>
+            <File>
+              <FileName>led_app.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\led_app.c</FilePath>
             </File>
           </Files>
         </Group>

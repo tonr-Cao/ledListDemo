@@ -30,9 +30,13 @@
 ".\objects\usart.o"
 ".\objects\i2c.o"
 ".\objects\si2c.o"
-".\objects\oled.o"
 ".\objects\button.o"
 ".\objects\spi.o"
+".\objects\encoder.o"
+".\objects\oled.o"
+".\objects\led_pwm.o"
+".\objects\menu.o"
+".\objects\led_app.o"
 --library_type=microlib --strict --scatter ".\Objects\template.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

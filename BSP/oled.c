@@ -15,6 +15,28 @@
 #include "oled.h"
 #include "oled_default_font.h"
 #include <math.h>
+#include "si2c.h"
+
+static SI2C_TypeDef OLED_SI2C =
+{
+	GPIOB,
+	GPIO_Pin_6,
+	GPIOB,
+	GPIO_Pin_7
+};
+
+static int BSP_OLED_I2C_Write(uint8_t addr, const uint8_t *pdata, uint16_t size)
+{
+	return My_SI2C_SendBytes(&OLED_SI2C, addr, pdata, size);
+}
+
+int BSP_OLED_Init(OLED_TypeDef *OLED)
+{
+	OLED_InitTypeDef init = {BSP_OLED_I2C_Write};
+
+	My_SI2C_Init(&OLED_SI2C);
+	return OLED_Init(OLED, &init);
+}
 
 // 定义屏幕尺寸
 #define OLED_SCREEN_COLS 128 

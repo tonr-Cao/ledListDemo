@@ -1,4 +1,5 @@
 .\objects\main.o: user\main.c
+.\objects\main.o: .\my_lib\delay.h
 .\objects\main.o: .\std_periph_driver\inc\stm32f10x.h
 .\objects\main.o: .\std_periph_driver\inc\core_cm3.h
 .\objects\main.o: D:\Keil5\core\ARM\ARMCC\Bin\..\include\stdint.h
@@ -30,9 +31,6 @@
 .\objects\main.o: .\std_periph_driver\inc\stm32f10x_tim.h
 .\objects\main.o: .\std_periph_driver\inc\stm32f10x_usart.h
 .\objects\main.o: .\std_periph_driver\inc\stm32f10x_wwdg.h
-.\objects\main.o: .\my_lib\delay.h
-.\objects\main.o: .\my_lib\si2c.h
-.\objects\main.o: .\my_lib\oled.h
+.\objects\main.o: .\BSP\oled.h
 .\objects\main.o: .\my_lib\oled_font.h
-.\objects\main.o: .\my_lib\button.h
-.\objects\main.o: .\my_lib\menu_font.h
+.\objects\main.o: .\APP\menu.h

@@ -31,3 +31,4 @@
 .\objects\stm32f10x_it.o: .\std_periph_driver\inc\stm32f10x_tim.h
 .\objects\stm32f10x_it.o: .\std_periph_driver\inc\stm32f10x_usart.h
 .\objects\stm32f10x_it.o: .\std_periph_driver\inc\stm32f10x_wwdg.h
+.\objects\stm32f10x_it.o: .\BSP\encoder.h

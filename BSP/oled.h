@@ -7,8 +7,8 @@
   * @brief   OLED显示器驱动程序
   ******************************************************************************
   */
-#ifndef _OLED_H_
-#define _OLED_H_
+#ifndef BSP_OLED_H
+#define BSP_OLED_H
 
 #include "stm32f10x.h"
 #include "oled_font.h"
@@ -74,6 +74,7 @@ typedef struct
 
 // @屏幕初始化
 int OLED_Init(OLED_TypeDef *OLED, OLED_InitTypeDef *OLED_InitStruct);
+int BSP_OLED_Init(OLED_TypeDef *OLED);
 // @清空屏幕
 void OLED_Clear(OLED_TypeDef *OLED);
 // @获取屏幕宽度
