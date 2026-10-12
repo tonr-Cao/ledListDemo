@@ -37,3 +37,7 @@
 .\objects\menu.o: .\my_lib\delay.h
 .\objects\menu.o: .\my_lib\menu_font.h
 .\objects\menu.o: APP\led_app.h
+.\objects\menu.o: .\BSP\adc.h
+.\objects\menu.o: .\BSP\servo_pwm.h
+.\objects\menu.o: .\BSP\w25qxx.h
+.\objects\menu.o: APP\settings.h

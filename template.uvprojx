@@ -725,6 +725,16 @@
           <GroupName>BSP</GroupName>
           <Files>
             <File>
+              <FileName>adc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\adc.h</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\adc.c</FilePath>
+            </File>
+            <File>
               <FileName>encoder.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\BSP\encoder.h</FilePath>
@@ -754,6 +764,26 @@
               <FileType>1</FileType>
               <FilePath>.\BSP\led_pwm.c</FilePath>
             </File>
+            <File>
+              <FileName>servo_pwm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\servo_pwm.h</FilePath>
+            </File>
+            <File>
+              <FileName>servo_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\servo_pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>w25qxx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\w25qxx.h</FilePath>
+            </File>
+            <File>
+              <FileName>w25qxx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\w25qxx.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -768,6 +798,16 @@
               <FileName>menu.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>settings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\APP\settings.h</FilePath>
+            </File>
+            <File>
+              <FileName>settings.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\settings.c</FilePath>
             </File>
             <File>
               <FileName>led_app.h</FileName>

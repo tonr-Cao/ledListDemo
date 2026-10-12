@@ -2,13 +2,16 @@
 #include "led_pwm.h"
 
 #define LED_BRIGHTNESS_STEP 5
-#define LED_BRIGHTNESS_INITIAL 65
 
 static uint8_t brightness;
 
-void LED_App_Init(void)
+void LED_App_Init(uint8_t initial_brightness)
 {
-	brightness = LED_BRIGHTNESS_INITIAL;
+	if(initial_brightness > 100)
+	{
+		initial_brightness = 100;
+	}
+	brightness = initial_brightness;
 	BSP_LED_PWM_Init();
 	BSP_LED_PWM_SetBrightness(brightness);
 }
@@ -45,4 +48,14 @@ uint8_t LED_App_AdjustBrightness(int8_t direction)
 uint8_t LED_App_GetBrightness(void)
 {
 	return brightness;
+}
+
+void LED_App_SetBrightness(uint8_t new_brightness)
+{
+	if(new_brightness > 100)
+	{
+		new_brightness = 100;
+	}
+	brightness = new_brightness;
+	BSP_LED_PWM_SetBrightness(brightness);
 }
