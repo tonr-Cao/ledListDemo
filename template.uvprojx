@@ -338,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>--no-multibyte-chars</MiscControls>
-              <Define></Define>
+              <Define>STM32F103xB,USE_HAL_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\std_periph_driver\inc;.\user;.\my_lib;.\BSP;.\APP;.\my_lib\font;.\my_lib\font\.h</IncludePath>
+              <IncludePath>.\std_periph_driver\inc;.\user;.\my_lib;.\BSP;.\APP;.\my_lib\font;.\my_lib\font\.h;.\Drivers\STM32F1xx_HAL_Driver\Inc;.\Drivers\CMSIS\Device\ST\STM32F1xx\Include;.\Drivers\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -403,6 +403,11 @@
               <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user\stm32f10x_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user\stm32f1xx_hal_conf.h</FilePath>
             </File>
           </Files>
         </Group>
