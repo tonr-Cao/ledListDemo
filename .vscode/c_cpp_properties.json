@@ -3,7 +3,9 @@
         {
             "name": "default",
             "includePath": [
-                "d:\\stm32-sheep\\template_LED\\std_periph_driver\\inc",
+                "d:\\stm32-sheep\\template_LED\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
+                "d:\\stm32-sheep\\template_LED\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
+                "d:\\stm32-sheep\\template_LED\\Drivers\\CMSIS\\Include",
                 "d:\\stm32-sheep\\template_LED\\user",
                 "d:\\stm32-sheep\\template_LED\\my_lib",
                 "d:\\stm32-sheep\\template_LED\\BSP",
@@ -13,9 +15,12 @@
                 "D:\\Keil5\\core\\ARM\\ARMCC\\include",
                 "D:\\Keil5\\core\\ARM\\ARMCC\\include\\rw",
                 "d:\\stm32-sheep\\template_LED\\startup",
-                "d:\\stm32-sheep\\template_LED\\std_periph_driver\\src"
+                "d:\\stm32-sheep\\template_LED\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Source\\Templates",
+                "d:\\stm32-sheep\\template_LED\\Drivers\\STM32F1xx_HAL_Driver\\Src"
             ],
             "defines": [
+                "STM32F103xB",
+                "USE_HAL_DRIVER",
                 "__CC_ARM",
                 "__arm__",
                 "__align(x)=",

@@ -4,25 +4,26 @@ static Encoder_TypeDef *active_encoder;
 
 static uint8_t ReadPin(uint16_t pin)
 {
-	return GPIO_ReadInputDataBit(GPIOA, pin) == Bit_SET ? 1 : 0;
+	return HAL_GPIO_ReadPin(GPIOA, pin) == GPIO_PIN_SET ? 1 : 0;
 }
 
 void BSP_Encoder_Init(Encoder_TypeDef *Encoder)
 {
-	GPIO_InitTypeDef gpio_init;
+	GPIO_InitTypeDef gpio_init = {0};
 	uint8_t raw_clk;
 	uint8_t raw_dt;
 	uint8_t raw_switch;
 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+	__HAL_RCC_GPIOA_CLK_ENABLE();
 
-	gpio_init.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2;
-	gpio_init.GPIO_Mode = GPIO_Mode_IPU;
-	GPIO_Init(GPIOA, &gpio_init);
+	gpio_init.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2;
+	gpio_init.Mode = GPIO_MODE_INPUT;
+	gpio_init.Pull = GPIO_PULLUP;
+	HAL_GPIO_Init(GPIOA, &gpio_init);
 
-	raw_clk = ReadPin(GPIO_Pin_0);
-	raw_dt = ReadPin(GPIO_Pin_1);
-	raw_switch = (uint8_t)!ReadPin(GPIO_Pin_2);
+	raw_clk = ReadPin(GPIO_PIN_0);
+	raw_dt = ReadPin(GPIO_PIN_1);
+	raw_switch = (uint8_t)!ReadPin(GPIO_PIN_2);
 	Encoder->CLK_State = raw_clk;
 	Encoder->CLK_Candidate = raw_clk;
 	Encoder->DT_State = raw_dt;
@@ -63,8 +64,8 @@ void BSP_Encoder_Tick(void)
 	}
 
 	Encoder->Tick++;
-	current_clk = ReadPin(GPIO_Pin_0);
-	current_dt = ReadPin(GPIO_Pin_1);
+	current_clk = ReadPin(GPIO_PIN_0);
+	current_dt = ReadPin(GPIO_PIN_1);
 	current_state = (current_clk << 1) | current_dt;
 	previous_state = Encoder->EncoderState;
 
@@ -100,7 +101,7 @@ void BSP_Encoder_Tick(void)
 		}
 	}
 
-	current_switch = (uint8_t)!ReadPin(GPIO_Pin_2);
+	current_switch = (uint8_t)!ReadPin(GPIO_PIN_2);
 	if(current_switch != Encoder->SW_Candidate)
 	{
 		Encoder->SW_Candidate = current_switch;

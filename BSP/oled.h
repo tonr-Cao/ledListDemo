@@ -10,7 +10,7 @@
 #ifndef BSP_OLED_H
 #define BSP_OLED_H
 
-#include "stm32f10x.h"
+#include "stm32f1xx_hal.h"
 #include "oled_font.h"
 
 #define OLED_SLAVE_ADDR 0x78

@@ -1,7 +1,7 @@
 #ifndef BSP_ENCODER_H
 #define BSP_ENCODER_H
 
-#include "stm32f10x.h"
+#include "stm32f1xx_hal.h"
 
 #define ENCODER_ROTATE_LEFT  (-1)
 #define ENCODER_ROTATE_RIGHT (1)

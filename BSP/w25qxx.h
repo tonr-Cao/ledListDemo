@@ -1,7 +1,7 @@
 #ifndef BSP_W25QXX_H
 #define BSP_W25QXX_H
 
-#include "stm32f10x.h"
+#include "stm32f1xx_hal.h"
 
 #define W25QXX_CAPACITY_BYTES 0x00800000UL
 #define W25QXX_SECTOR_SIZE 4096UL

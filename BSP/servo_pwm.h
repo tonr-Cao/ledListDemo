@@ -1,7 +1,7 @@
 #ifndef BSP_SERVO_PWM_H
 #define BSP_SERVO_PWM_H
 
-#include "stm32f10x.h"
+#include "stm32f1xx_hal.h"
 
 #define SERVO_PULSE_MIN_US 1000
 #define SERVO_PULSE_MAX_US 2000

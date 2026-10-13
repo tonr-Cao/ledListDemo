@@ -1,7 +1,7 @@
 #ifndef APP_SETTINGS_H
 #define APP_SETTINGS_H
 
-#include "stm32f10x.h"
+#include "stm32f1xx_hal.h"
 
 #define SETTINGS_MAGIC 0x53455431UL
 #define SETTINGS_VERSION 1
