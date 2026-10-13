@@ -1,1 +1,30 @@
+# ===== Keil MDK / uv4 工具日志 =====
 .vscode/keil-assistant.log
+.vscode/uv4.log
+.vscode/uv4.log.lock
+*.log
+*.log.lock
+
+# Keil 每次编译都会重新生成的 build log
+*.build_log.htm
+
+# ===== Keil MDK 编译产物（可重新生成，不入库） =====
+Objects/
+Listings/
+Debug/
+build/
+Output/
+
+# 编译/链接中间文件（兜底规则，防止散落在其它目录）
+*.o
+*.crf
+*.d
+*.dep
+*.axf
+*.bin
+*.elf
+*.hex
+*.lnp
+*.lst
+*.map
+*.sct
