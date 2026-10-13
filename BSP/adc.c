@@ -1,41 +1,44 @@
 #include "adc.h"
-#include "stm32f10x_adc.h"
-#include "stm32f10x_gpio.h"
-#include "stm32f10x_rcc.h"
+
+#define ADC_MONITOR_CHANNEL ADC_CHANNEL_3
+#define ADC_MONITOR_RANK 1
+#define ADC_CONVERSION_TIMEOUT_MS 10UL
+
+static ADC_HandleTypeDef adc_monitor;
 
 void BSP_ADC_Init(void)
 {
-	ADC_InitTypeDef adc_init;
-	GPIO_InitTypeDef gpio_init;
+	GPIO_InitTypeDef gpio_init = {0};
+	ADC_ChannelConfTypeDef channel_config = {0};
 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_ADC1, ENABLE);
-	RCC_ADCCLKConfig(RCC_PCLK2_Div6);
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_ADC1_CLK_ENABLE();
+	__HAL_RCC_ADC_CONFIG(RCC_ADCPCLK2_DIV6);
 
-	gpio_init.GPIO_Pin = GPIO_Pin_3;
-	gpio_init.GPIO_Mode = GPIO_Mode_AIN;
-	GPIO_Init(GPIOA, &gpio_init);
+	gpio_init.Pin = GPIO_PIN_3;
+	gpio_init.Mode = GPIO_MODE_ANALOG;
+	HAL_GPIO_Init(GPIOA, &gpio_init);
 
-	ADC_DeInit(ADC1);
-	ADC_StructInit(&adc_init);
-	adc_init.ADC_Mode = ADC_Mode_Independent;
-	adc_init.ADC_ScanConvMode = DISABLE;
-	adc_init.ADC_ContinuousConvMode = DISABLE;
-	adc_init.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
-	adc_init.ADC_DataAlign = ADC_DataAlign_Right;
-	adc_init.ADC_NbrOfChannel = 1;
-	ADC_Init(ADC1, &adc_init);
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_3, 1, ADC_SampleTime_55Cycles5);
+	adc_monitor.Instance = ADC1;
+	adc_monitor.Init.ScanConvMode = ADC_SCAN_DISABLE;
+	adc_monitor.Init.ContinuousConvMode = DISABLE;
+	adc_monitor.Init.DiscontinuousConvMode = DISABLE;
+	adc_monitor.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+	adc_monitor.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+	adc_monitor.Init.NbrOfConversion = 1;
+	HAL_ADC_Init(&adc_monitor);
 
-	ADC_Cmd(ADC1, ENABLE);
-	ADC_ResetCalibration(ADC1);
-	while(ADC_GetResetCalibrationStatus(ADC1));
-	ADC_StartCalibration(ADC1);
-	while(ADC_GetCalibrationStatus(ADC1));
+	channel_config.Channel = ADC_MONITOR_CHANNEL;
+	channel_config.Rank = ADC_MONITOR_RANK;
+	channel_config.SamplingTime = ADC_SAMPLETIME_55CYCLES_5;
+	HAL_ADC_ConfigChannel(&adc_monitor, &channel_config);
+
+	HAL_ADCEx_Calibration_Start(&adc_monitor);
 }
 
 uint16_t BSP_ADC_ReadChannel3(void)
 {
-	ADC_SoftwareStartConvCmd(ADC1, ENABLE);
-	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
-	return ADC_GetConversionValue(ADC1);
+	HAL_ADC_Start(&adc_monitor);
+	HAL_ADC_PollForConversion(&adc_monitor, ADC_CONVERSION_TIMEOUT_MS);
+	return (uint16_t)HAL_ADC_GetValue(&adc_monitor);
 }

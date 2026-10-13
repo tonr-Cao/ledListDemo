@@ -26,34 +26,31 @@ void Delay_Init(void)
 	{
 		delay_initialized_flag = 1;
 		
-		RCC_ClocksTypeDef clockinfo = {0};
 		uint32_t tmp;
 		
-		SysTick->CTRL &= ~SysTick_CTRL_ENABLE; // 禁止SYSTICK
+		SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk; // 禁止SYSTICK
 
 		ulTicks = 0;
 
-		RCC_GetClocksFreq(&clockinfo);
-
-		SysTick->CTRL |= SysTick_CTRL_TICKINT; // 开启中断
+		SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk; // 开启中断
 
 		// 设置中断优先级为0
 		SCB->SHP[7] = 0;
 
 		// 设置自动重装值以保证1ms的时钟
-		tmp =  clockinfo.HCLK_Frequency / 1000;
+		tmp =  HAL_RCC_GetHCLKFreq() / 1000;
 		if(tmp > 0x00ffffff)
 		{
 			tmp = tmp / 8;
-			SysTick->CTRL &= ~SysTick_CTRL_CLKSOURCE; 
+			SysTick->CTRL &= ~SysTick_CTRL_CLKSOURCE_Msk; 
 		}
 		else
 		{
-			SysTick->CTRL |= SysTick_CTRL_CLKSOURCE; 
+			SysTick->CTRL |= SysTick_CTRL_CLKSOURCE_Msk; 
 		}
 		SysTick->LOAD = tmp - 1;
 
-		SysTick->CTRL |= SysTick_CTRL_ENABLE; 
+		SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk; 
 		
 		us_per_mini_tick = 1000.0 / ((SysTick->LOAD & 0x00ffffff) + 1);
 	}
@@ -97,14 +94,14 @@ uint64_t GetUs(void)
 	uint64_t tick;
 	uint32_t mini_tick;
 	
-	SysTick->CTRL &= ~SysTick_CTRL_COUNTFLAG; // 清除COUNTFLAG
+	SysTick->CTRL &= ~SysTick_CTRL_COUNTFLAG_Msk; // 清除COUNTFLAG
 	
 	tick = ulTicks; // 读取毫秒值
 	mini_tick = SysTick->VAL; // 读取SYSTICK的值
 	
 	// 直到无溢出标志
 	// 读取COUNTERFLAG也会清除它的值
-	while(SysTick->CTRL & SysTick_CTRL_COUNTFLAG) 
+	while(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) 
 	{
 		mini_tick = SysTick->VAL;
 		tick = ulTicks;

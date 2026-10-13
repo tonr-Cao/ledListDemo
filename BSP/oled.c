@@ -20,9 +20,9 @@
 static SI2C_TypeDef OLED_SI2C =
 {
 	GPIOB,
-	GPIO_Pin_6,
+	GPIO_PIN_6,
 	GPIOB,
-	GPIO_Pin_7
+	GPIO_PIN_7
 };
 
 static int BSP_OLED_I2C_Write(uint8_t addr, const uint8_t *pdata, uint16_t size)

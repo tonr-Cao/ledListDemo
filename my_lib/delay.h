@@ -11,7 +11,7 @@
 #ifndef _DELAY_H_
 #define _DELAY_H_
 
-#include "stm32f10x.h"
+#include "stm32f1xx_hal.h"
 
     void Delay_Init(void); // 延迟函数初始化
     void Delay(uint32_t ms); // 延迟

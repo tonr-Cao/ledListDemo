@@ -9,15 +9,35 @@
   */
 #include "si2c.h"
 
-#define scl_w(v) GPIO_WriteBit(SI2C->SCL_GPIOx, SI2C->SCL_GPIO_Pin, ((v)?Bit_SET:Bit_RESET))
-#define sda_w(v) GPIO_WriteBit(SI2C->SDA_GPIOx, SI2C->SDA_GPIO_Pin, ((v)?Bit_SET:Bit_RESET))
-#define scl_r ((GPIO_ReadInputDataBit(SI2C->SCL_GPIOx, SI2C->SCL_GPIO_Pin) == Bit_SET) ? 1 : 0)
-#define sda_r ((GPIO_ReadInputDataBit(SI2C->SDA_GPIOx, SI2C->SDA_GPIO_Pin) == Bit_SET) ? 1 : 0)
+#define scl_w(v) HAL_GPIO_WritePin(SI2C->SCL_GPIOx, SI2C->SCL_GPIO_Pin, ((v)?GPIO_PIN_SET:GPIO_PIN_RESET))
+#define sda_w(v) HAL_GPIO_WritePin(SI2C->SDA_GPIOx, SI2C->SDA_GPIO_Pin, ((v)?GPIO_PIN_SET:GPIO_PIN_RESET))
+#define scl_r ((HAL_GPIO_ReadPin(SI2C->SCL_GPIOx, SI2C->SCL_GPIO_Pin) == GPIO_PIN_SET) ? 1 : 0)
+#define sda_r ((HAL_GPIO_ReadPin(SI2C->SDA_GPIOx, SI2C->SDA_GPIO_Pin) == GPIO_PIN_SET) ? 1 : 0)
 void delay(uint32_t us) { for(uint32_t i = 0; i<8*us; i++); }
 
 static uint8_t SendByte(SI2C_TypeDef *SI2C, uint8_t Byte);
 static uint8_t ReceiveByte(SI2C_TypeDef *SI2C, uint8_t Ack);
 static void SendStop(SI2C_TypeDef *SI2C);
+
+static void SI2C_EnableGpioClock(GPIO_TypeDef *GPIOx)
+{
+	if(GPIOx == GPIOA)
+	{
+		__HAL_RCC_GPIOA_CLK_ENABLE();
+	}
+	else if(GPIOx == GPIOB)
+	{
+		__HAL_RCC_GPIOB_CLK_ENABLE();
+	}
+	else if(GPIOx == GPIOC)
+	{
+		__HAL_RCC_GPIOC_CLK_ENABLE();
+	}
+	else if(GPIOx == GPIOD)
+	{
+		__HAL_RCC_GPIOD_CLK_ENABLE();
+	}
+}
 
 
 //
@@ -25,60 +45,26 @@ static void SendStop(SI2C_TypeDef *SI2C);
 //
 __weak void My_SI2C_Init(SI2C_TypeDef *SI2C)
 {
-	// #1. 使能SCL引脚的时钟
-	if(SI2C->SCL_GPIOx == GPIOA)
-	{
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
-	}
-	else if(SI2C->SCL_GPIOx == GPIOB)
-	{
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-	}
-	else if(SI2C->SCL_GPIOx == GPIOC)
-	{
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
-	}
-	else if(SI2C->SCL_GPIOx == GPIOD)
-	{
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
-	}
-	
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+	// #1. 使能SCL和SDA引脚的时钟
+	SI2C_EnableGpioClock(SI2C->SCL_GPIOx);
+	SI2C_EnableGpioClock(SI2C->SDA_GPIOx);
+
 	// #2. 对SCL和SDA写1
-	GPIO_WriteBit(SI2C->SDA_GPIOx, SI2C->SDA_GPIO_Pin, Bit_SET);
-	GPIO_WriteBit(SI2C->SCL_GPIOx, SI2C->SCL_GPIO_Pin, Bit_SET);
-	
-	// #2. 使能SDA引脚的时钟
-	if(SI2C->SDA_GPIOx == GPIOA)
-	{
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
-	}
-	else if(SI2C->SDA_GPIOx == GPIOB)
-	{
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-	}
-	else if(SI2C->SDA_GPIOx == GPIOC)
-	{
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
-	}
-	else if(SI2C->SDA_GPIOx == GPIOD)
-	{
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
-	}
-	
+	HAL_GPIO_WritePin(SI2C->SDA_GPIOx, SI2C->SDA_GPIO_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(SI2C->SCL_GPIOx, SI2C->SCL_GPIO_Pin, GPIO_PIN_SET);
+
 	// #3. 初始化SCL引脚为输出开漏
-	GPIO_InitTypeDef GPIO_InitStruct;
-	
-	GPIO_InitStruct.GPIO_Pin = SI2C->SCL_GPIO_Pin;
-	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_OD;
-	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_Init(SI2C->SCL_GPIOx, &GPIO_InitStruct);
-	
+	GPIO_InitStruct.Pin = SI2C->SCL_GPIO_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(SI2C->SCL_GPIOx, &GPIO_InitStruct);
+
 	// #4. 初始化SDA引脚为输出开漏
-	
-	GPIO_InitStruct.GPIO_Pin = SI2C->SDA_GPIO_Pin;
-	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_OD;
-	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_Init(SI2C->SDA_GPIOx, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = SI2C->SDA_GPIO_Pin;
+	HAL_GPIO_Init(SI2C->SDA_GPIOx, &GPIO_InitStruct);
 }
 
 //

@@ -163,6 +163,7 @@ extern __IO uint32_t ulTicks;
 
 void SysTick_Handler(void)
 {
+	HAL_IncTick();
 	ulTicks++;
 	BSP_Encoder_Tick();
 }
