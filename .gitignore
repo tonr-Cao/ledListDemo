@@ -8,6 +8,11 @@
 # Keil 每次编译都会重新生成的 build log
 *.build_log.htm
 
+# ===== VS Code 插件自动生成的配置 =====
+# c_cpp_properties.json 由 Keil Assistant 插件根据 template.uvprojx 自动重写，
+# 且包含本机绝对路径，不适合入库（文件仍保留在本地，不影响 IntelliSense）
+.vscode/c_cpp_properties.json
+
 # ===== Keil MDK 编译产物（可重新生成，不入库） =====
 Objects/
 Listings/
